@@ -1,56 +1,75 @@
+"use client";
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import MainButton from "../common/MainButton";
+import { useLocale, useTranslations } from "next-intl";
+import { SUM_DONAT_EN } from "@/constants/index_en";
+import { SUM_DONAT_UA } from "@/constants/index_ua";
 
 function HeroSection() {
-  const [isHovered, setIsHovered] = useState(false);
+  const [donationAmount, setDonationAmount] = useState("");
+  const t = useTranslations("Home");
+  const localActive = useLocale();
+  const sumDonate = localActive === "en" ? SUM_DONAT_EN : SUM_DONAT_UA;
   return (
     <div className="relative mt-32 md:mt-8 ">
-      <div className="px-2">
-        <p className="text-dark text-[28px] text-center  md:text-[64px] font-extrabold">
-          Make your dream business goal come true
-        </p>
-        <p className="text-customGray text-[20px] text-center">
-          when you need us for improve your business,
-        </p>
-        <p className="text-customGray text-[20px] text-center">
-          then come with us to help your business have reach it, you just sit
-          and feel that goal
-        </p>
-      </div>
-      <div className="flex justify-center my-8">
-        <MainButton text="Start Project" />
-      </div>
+    
+      <div className="flex justify-center items-center px-4 mt-10">
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-6xl font-bold leading-tight text-center">
+            {t("HeroSection.title")}
+            {/* Donating is about making a
+            <span className="text-blue-500"> Difference.</span> */}
+          </h1>
+          <p className="mt-4 text-gray-500 text-center">
+            {t("HeroSection.description")}
+          </p>
 
-      <div className="flex justify-center">
-        <motion.img
-          src={
-            !isHovered
-              ? `/images/hero_image_empty.png`
-              : "/images/hero_image.png"
-          }
-          alt="hero image"
-          style={{
-            opacity: !isHovered ? 0.8 : 1,
-            transition: "opacity 0.3s ease",
-          }}
-          transition={{
-            ease: [0.7, 0, 0.3, 1],
-          }}
-          whileHover={{ scale: 1.05 }}
-          onMouseEnter={() => setIsHovered(true)}
-          className="cursor-pointer transition-all duration-100 ease-in-out"
-        />
+          <div className="mt-10 bg-gray rounded-2xl shadow-lg p-8 border-2 border-blue-400">
+            <div className="mb-4">
+              <h2 className="text-xl font-semibold">
+                {" "}
+                {t("HeroSection.form.title")}
+              </h2>
+              <div className="flex mt-2">
+                <button className="flex-1 py-2 bg-blue-100 text-blue-400 rounded-l-lg focus:outline-none">
+                  {t("HeroSection.form.option-1")}
+                </button>
+                <button className="flex-1 py-2 bg-gray-100 text-gray-700 rounded-r-lg focus:outline-none">
+                  {t("HeroSection.form.option-2")}
+                </button>
+              </div>
+            </div>
+            <div className="grid grid-cols-3 gap-4 mb-4 ">
+              {sumDonate.map((i) => (
+                <button
+                  key={i.sum}
+                  className="py-2 bg-gray-100 text-gray-700 rounded focus:outline-none"
+                >
+                  {i.sum} {i.currency}
+                </button>
+              ))}
+            </div>
+            <div className="mb-4">
+              <input
+                type="text"
+                placeholder={t("HeroSection.form.option-3")}
+                className="w-full py-3 px-4 rounded border-gray-300 focus:outline-none"
+                value={donationAmount}
+                onChange={(e) => setDonationAmount(e.target.value)}
+              />
+            </div>
+            <MainButton
+              text={t("HeroSection.form.button-text")}
+              classes="w-full py-3 "
+            />
+          </div>
+        </div>
       </div>
-
-      <div className="absolute top-32 left-8 hidden md:block">
-        <img src="/images/blue_gradient_ball.png" alt="blue gradient ball" />
+      <div className="absolute top-32  hidden md:block">
+        <img src="/images/ellipse.png" alt="orange ellipse" />
       </div>
       <div className="absolute top-0 right-0">
-        <img
-          src="/images/red_gradient_ball_half.png"
-          alt="blue gradient ball"
-        />
+        <img src="/images/formVector.svg" alt="blue gradient ball" />
       </div>
     </div>
   );

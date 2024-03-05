@@ -25,16 +25,13 @@ export default function Home() {
     <LandingPageProvider>
       <div>
         <HeroSection />
-        <div className="px-4 md:px-16 flex flex-col gap-16 md:gap-32 mt-16 md:mt-32">
+        {/* <div className="px-4 md:px-16 flex flex-col gap-16 md:gap-32 mt-16 md:mt-32">
           <AboutUsSection />
           <ServicesSection />
           <PortfolioSection />
           <TestimonialSection />
           <CollaborationSection />
-        </div>
-        <div className="mt-16 md:mt-32">
-          <FooterSection />
-        </div>
+        </div> */}
       </div>
     </LandingPageProvider>
   );

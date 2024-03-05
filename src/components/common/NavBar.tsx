@@ -59,10 +59,10 @@ function NavBar() {
               classes="bg-white border border-primary text-primary font-bold hover:bg-white shadow-none"
             />
 
-            <MainButton
+            {/* <MainButton
               text={t("buttons.signUp")}
               classes="bg-[#1A8FE3] text-white font-bold hover:bg-[#1A8FE3] shadow-none"
-            />
+            /> */}
           </div>
         </div>
       </div>
@@ -120,11 +120,10 @@ function NavBar() {
                   classes="bg-white border border-primary text-primary font-bold hover:bg-white shadow-none"
                 />
 
-                <MainButton
+                {/* <MainButton
                   text={t("buttons.signUp")}
                   classes="bg-[#1A8FE3] text-white font-bold hover:bg-[#1A8FE3] shadow-none"
-                  
-                />
+                /> */}
               </div>
             </div>
           </div>

@@ -7,41 +7,37 @@ export const NAV_LINKS_EN = [
   { href: "/contact", key: "contact", label: "Contact" },
 ];
 
+export const SUM_DONAT_EN = [
+  { sum: 100, currency: "$" },
+  { sum: 200, currency: "$" },
+  { sum: 300, currency: "$" },
+  { sum: 400, currency: "$" },
+  { sum: 500, currency: "$" },
+  { sum: 1000, currency: "$" },
+];
 
-// FOOTER SECTION
-export const FOOTER_LINKS = [
+export const FOOTER_CONTACT_INFO_EN = [
   {
-    title: "Learn More",
-    links: [
-      "About Hilink",
-      "Press Releases",
-      "Environment",
-      "Jobs",
-      "Privacy Policy",
-      "Contact Us",
-    ],
+    title: "Terms & policies",
+    items: ["Terms of Service", "Privacy Policy"],
   },
   {
-    title: "Our Community",
-    links: ["Climbing xixixi", "Hiking hilink", "Hilink kinthill"],
+    title: "Company",
+    items: ["Home", "About Us", "Contact us"],
+  },
+  {
+    title: "Contact",
+    items: ["(+380)099 235 79 67", "nastuly72@gmail.com", "Contact us"],
+  },
+  {
+    title: "Location",
+    items: [
+      "23A Sichovyh Striltsiv Street, Kyiv, 04053",
+      "PALADIS Business Center",
+      "Around the clock",
+      "hello@kooperativ.cc",
+    ],
   },
 ];
 
-export const FOOTER_CONTACT_INFO = {
-  title: "Contact Us",
-  links: [
-    { label: "Admin Officer", value: "123-456-7890" },
-    { label: "Email Officer", value: "hilink@akinthil.com" },
-  ],
-};
 
-export const SOCIALS = {
-  title: "Social",
-  links: [
-    "/facebook.svg",
-    "/instagram.svg",
-    "/twitter.svg",
-    "/youtube.svg",
-    "/wordpress.svg",
-  ],
-};

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/footer";
 import NavBar from "@/components/common/NavBar";
 import {NextIntlClientProvider, useMessages} from 'next-intl';
+import FooterSection from "@/components/sections/FooterSection";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -30,11 +30,13 @@ export default function RootLayout({
     const messages = useMessages();
   return (
     <html lang={locale}>
-      <body  className={nunito.className} >
+      <body className={nunito.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <NavBar />
           {children}
-            <Footer />
+          <div className="mt-16 md:mt-32">
+            <FooterSection />
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -11,7 +11,6 @@ function FooterSection() {
   const data =
     localActive === "en" ? FOOTER_CONTACT_INFO_EN : FOOTER_CONTACT_INFO_UA;
 
- 
   const socialLinks = [
     {
       src: "/facebook.png",
@@ -39,7 +38,7 @@ function FooterSection() {
     <section className="bg-white py-16 px-4 md:px-16">
       <div className="flex justify-between flex-col md:flex-row gap-16">
         <div>
-          <img src="/images/logo.png" alt="footer logo" />
+          <img src="/images/logo.png" alt="footer logo" width={130} />
         </div>
         <div className="flex justify-between flex-col gap-8 md:flex-row flex-grow">
           {data.map((option, index) => (

@@ -4,7 +4,7 @@
     "description": "Oops! It seems like you've stumbled upon a page that doesn't exist. Don't worry, our internationalization magic is still hard at work on other parts of the app. Feel free to navigate back to explore more!"
   },
   "Footer": {
-    "copyright": "Copyright @ 2024 Nastya Byvalkevych. All Right Reserved"  
+    "copyright": "Copyright @ 2024 Nastya Byvalkevych. All Right Reserved"
   },
   "Navbar": {
     "buttons": {
@@ -14,15 +14,31 @@
   },
   "Home": {
     "HeroSection": {
-      "title": "Donating is about making a Difference",
+      "title": "<strong>Donating</strong> is about making a Difference",
       "description": " it's about creating change. Every contribution, big or small, has the power to transform lives and communities. Your generosity makes a difference, sparking hope and opportunity where it's needed most. Join us in making a positive impact today.",
       "form": {
         "title": "Donation Amount",
         "option-1": "One-time",
         "option-2": "Weekly",
         "option-3": "Custom Amount",
-        "button-text":"DONATE NOW"
+        "button-text": "DONATE NOW"
       }
+    }
+  },
+  "About": {
+    "AboutUs": {
+      "titile": "About Us",
+      "description": "Our Teammate",
+      "story": "Our team started this project thinking about how we can provide support and help to Ukraine in the thick of the fire. <br></br> <br></br> <strong>Our goal</strong> is to collect funds for needy Ukrainians and distribute them where they are most needed. We believe that every donation can significantly change the lives of people affected by war and conflict.<br></br> Our team consists of volunteers who strive to do everything possible to help the Ukrainian people. We have combined our knowledge and skills to create this site, which we hope will be a tool for those who want to help and support people in difficult times.<br></br><br></br> We believe in the power of joint actions and solidarity. And our site is just one of the ways that each of us can contribute to the relief of complications and the recovery of Ukraine.",
+      "buttons": {
+        "about": "About Us",
+        "story": "Our Story"
+      }
+    },
+    "Services": {
+      "titile": "Be The <strong>Change</strong>",
+      "description": "We move with make a Creative Strategy for help your business goal, we help to improve your income by a services we have. make your content look interesting and make people look for your business",
+      "readMore": "Read more"
     }
   }
 }

@@ -6,16 +6,16 @@ import ServiceCard from "../cards/ServiceCard";
 function ServicesSection() {
   const data = [
     {
-      iconRoute: "/images/tv_icon.png",
-      title: "Social Media Management",
+      iconRoute: "/images/group1.svg",
+      title: "Help",
     },
     {
-      iconRoute: "/images/cog_icon.png",
-      title: "Search Engine Opimization",
+      iconRoute: "/images/group2.svg",
+      title: "Donation",
     },
     {
-      iconRoute: "/images/pen_icon.png",
-      title: "Design",
+      iconRoute: "/images/group3.svg",
+      title: "Volunteer",
     },
     {
       iconRoute: "/images/tv_alt_icon.png",
@@ -25,9 +25,6 @@ function ServicesSection() {
   return (
     <section className="flex flex-col md:flex-row gap-8 items-center">
       <div>
-        <p className="text-primary  text-[24px] font-semibold text-center md:text-left">
-          Our Services
-        </p>
         <p className="text-dark text-[24px] md:text-[55px] font-semibold text-center md:text-left">
           Perfect and Fast Movement
         </p>

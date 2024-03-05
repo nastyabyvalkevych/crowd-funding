@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "../common/Header";
 import PortfolioCard from "../cards/PortfolioCard";
 import MainButton from "../common/MainButton";

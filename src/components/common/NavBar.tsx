@@ -31,7 +31,7 @@ function NavBar() {
       <div className="hidden lg:block animate-in fade-in bg-white p-6">
         <div className="flex justify-between mx-[41px] items-center">
           <div>
-            <img src="/images/logo.png" alt="logo" />
+            <img src="/images/logo.png" alt="logo" width={120} />
           </div>
           <div className="flex gap-[20px] xl:gap-[50px] text-[16px] items-center select-none">
             {navLinks.map((link, index) => (
@@ -74,7 +74,7 @@ function NavBar() {
       >
         <div className="flex justify-between mx-[10px]">
           <div className="flex gap-[50px] text-[16px] items-center select-none">
-            <img src="/images/logo.png" alt="logo" className="w-[4rem]" />
+            <img src="/images/logo.png" alt="logo" className="w-[6rem]" />
           </div>
           <div className="flex items-center gap-[40px]">
             {menu ? (

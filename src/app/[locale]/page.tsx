@@ -1,26 +1,7 @@
-"use client";
-
-import { useEffect } from "react";
-import AboutUsSection from "@/components/sections/AboutUsSection";
-import CollaborationSection from "@/components/sections/CollaborationSection";
-import FooterSection from "@/components/sections/FooterSection";
 import HeroSection from "@/components/sections/HeroSection";
-import PortfolioSection from "@/components/sections/PortfolioSection";
-import ServicesSection from "@/components/sections/ServicesSection";
-import TestimonialSection from "@/components/sections/TestimonialSection";
 import LandingPageProvider from "@/providers/LandingPageProvider";
-import Lenis from "@studio-freight/lenis";
 
 export default function Home() {
-  useEffect(() => {
-    const lenis = new Lenis();
-    function raf(time: any) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  }, []);
-
   return (
     <LandingPageProvider>
       <div>

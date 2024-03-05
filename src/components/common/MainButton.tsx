@@ -18,6 +18,7 @@ type MainButtonProps = {
   rightIconClass?: string;
   iconComponent?: ReactElement;
   size?: "small" | "normal" | "large";
+  
 };
 
 const MainButton = forwardRef<HTMLButtonElement, MainButtonProps>(
@@ -42,13 +43,13 @@ const MainButton = forwardRef<HTMLButtonElement, MainButtonProps>(
     ref
   ) => {
     const propWidth =
-      width === "full_width" ? "w-full" : width ? width : "w-[185px]";
+      width === "full_width" ? "w-full" : width ? width : "w-[155px]";
 
     const isSecondaryVariant = variant !== "primary";
 
     const size_height =
       size === "normal"
-        ? "h-[3.1215rem]"
+        ? "h-[3rem]"
         : size === "large"
         ? "h-[3.75rem]"
         : "h-[2.625rem]";

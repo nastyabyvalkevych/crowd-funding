@@ -12,5 +12,11 @@
   },
   "Footer": {
     "copyright": "© 2024 Your App. All rights reserved."
+  },
+  "Navbar":{
+    "buttons":{
+      "signIn": "Sign in",
+      "signUp": "Sign up"
+    }
   }
 }

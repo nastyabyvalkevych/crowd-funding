@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/common/Header";
 import Footer from "@/components/footer";
 import NavBar from "@/components/common/NavBar";
+import {NextIntlClientProvider, useMessages} from 'next-intl';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,14 +22,18 @@ export default function RootLayout({
   children,
   params: { locale },
 }: Readonly<RootLayoutProps>) {
+
+    const messages = useMessages();
   return (
     <html lang={locale}>
       <body className={inter.className}>
-        <NavBar/>
-        <div className="flex flex-col min-h-screen max-w-4xl mx-auto">
-          <div className="flex-grow mt-20">{children}</div>
-          <Footer />
-        </div>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <NavBar />
+          <div className="flex flex-col min-h-screen max-w-4xl mx-auto">
+            <div className="flex-grow mt-20">{children}</div>
+            <Footer />
+          </div>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

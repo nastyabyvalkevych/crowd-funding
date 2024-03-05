@@ -1,13 +1,5 @@
-import { Locale } from "@/i18n";
+import React from 'react'
 
-export default async function About({
-  params: { lang },
-}: {
-  params: { lang: Locale };
-}) {
-
-
-  return (
-    <h1>About</h1>
-  );
+export default function About() {
+  return <div>About</div>;
 }

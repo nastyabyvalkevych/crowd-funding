@@ -1,16 +1,17 @@
-import { useTranslations } from "next-intl";
-import Link from "next/link";
-import LocalSwitcher from "../local-switcher";
+import React from "react";
 
-export default function Header() {
-  const t = useTranslations("Navigation");
+interface IProps {
+  title: string;
+  subtitle: string;
+}
 
+export default function Header({ title, subtitle }: IProps) {
   return (
-    <header className="p-4">
-      <nav className="flex items-center justify-between">
-        <Link href="/">{t("home")}</Link>
-        <LocalSwitcher />
-      </nav>
-    </header>
+    <div className="flex flex-col justify-center items-center">
+      <p className="text-primary text-[24px] font-semibold">{title}</p>
+      <p className="text-dark text-2xl md:text-[55px] font-bold">{subtitle}</p>
+    </div>
   );
 }
+
+

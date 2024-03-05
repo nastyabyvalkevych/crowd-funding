@@ -28,7 +28,7 @@ function NavBar() {
   return (
     <div className="md:sticky md:top-0   md:shadow-none z-20 ">
       {/* DESKTOP */}
-      <div className="hidden lg:block animate-in fade-in bg-white p-8">
+      <div className="hidden lg:block animate-in fade-in bg-white p-6">
         <div className="flex justify-between mx-[41px] items-center">
           <div>
             <img src="/images/logo.png" alt="logo" />

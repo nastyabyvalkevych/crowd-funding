@@ -90,7 +90,7 @@ const MainButton = forwardRef<HTMLButtonElement, MainButtonProps>(
       </Button>
     ) : (
       <Button
-        className={`bg-primary text-white ${propWidth} md:${propWidth} select-none rounded-full cursor-not-allowed ${size_height} ${
+        className={`1A8FE3 text-white ${propWidth} md:${propWidth} select-none rounded-full cursor-not-allowed ${size_height} ${
           classes ? classes : ""
         }`}
         ref={ref}

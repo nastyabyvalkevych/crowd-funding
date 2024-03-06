@@ -26,7 +26,7 @@ function NavBar() {
   const navLinks = localActive === "en" ? NAV_LINKS_EN : NAV_LINKS_UA;
 
   const handleLinkClickMobile = () => {
-    setMenu(false); 
+    setMenu(false);
   };
 
   return (
@@ -104,7 +104,7 @@ function NavBar() {
                   <p
                     onClick={() => {
                       handleLinkClick(index);
-                      handleLinkClickMobile(); 
+                      handleLinkClickMobile();
                     }}
                     className={`transition-all duration-150 cursor-pointer flex items-center gap-2 font-[500] ${
                       activeLink === index

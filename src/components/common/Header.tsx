@@ -13,5 +13,3 @@ export default function Header({ title, subtitle }: IProps) {
     </div>
   );
 }
-
-

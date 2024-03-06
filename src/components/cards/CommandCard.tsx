@@ -7,12 +7,7 @@ interface IProps {
   review: string;
 }
 
-function CommandCard({
-  imageUrl,
-  name,
-  role,
-  review,
-}: IProps) {
+function CommandCard({ imageUrl, name, role, review }: IProps) {
   return (
     <div className="relative flex flex-col gap-8 shadow-lg bg-white  rounded-[20px]  p-8">
       <div className="flex items-center gap-4">

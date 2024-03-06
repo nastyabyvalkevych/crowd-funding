@@ -15,7 +15,7 @@ const config: Config = {
         dark: "#1D1D1D",
         customGray: "#464646",
       },
-     
+
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

@@ -40,9 +40,6 @@ export const FOOTER_CONTACT_INFO_EN = [
   },
 ];
 
-
-
-
 export const COMMAND_EN = [
   {
     imageUrl: "/images/lady.png",
@@ -66,4 +63,3 @@ export const COMMAND_EN = [
       "I believe that visual content can make kindness more visible and attractive. I want to use my graphic design skills to make this project aesthetically pleasing and get more people to support it.",
   },
 ];
-

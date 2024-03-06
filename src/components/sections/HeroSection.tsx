@@ -9,7 +9,6 @@ import { SUM_DONAT_UA } from "@/constants/index_ua";
 import { formats } from "@/lib/formats";
 
 function HeroSection() {
-
   const [donationAmount, setDonationAmount] = useState("");
 
   const t = useTranslations("Home");
@@ -22,7 +21,7 @@ function HeroSection() {
       <div className="flex justify-center items-center px-4 mt-10">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-6xl font-bold leading-tight text-center">
-            {t.rich("HeroSection.title",formats)}
+            {t.rich("HeroSection.title", formats)}
           </h1>
           <p className="mt-4 text-gray-500 text-center">
             {t("HeroSection.description")}

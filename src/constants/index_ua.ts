@@ -7,7 +7,6 @@ export const NAV_LINKS_UA = [
   { href: "/contact", key: "contact", label: "Контакти" },
 ];
 
-
 export const SUM_DONAT_UA = [
   { sum: 200, currency: "грн" },
   { sum: 500, currency: "грн" },
@@ -16,8 +15,6 @@ export const SUM_DONAT_UA = [
   { sum: 5000, currency: "грн" },
   { sum: 10000, currency: "грн" },
 ];
-
-
 
 export const FOOTER_CONTACT_INFO_UA = [
   {
@@ -42,9 +39,6 @@ export const FOOTER_CONTACT_INFO_UA = [
     ],
   },
 ];
-
-
-
 
 export const COMMAND_UA = [
   {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import {NextIntlClientProvider, useMessages} from 'next-intl';
+import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 
@@ -10,7 +10,6 @@ const nunito = Nunito({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
-
 
 export const metadata: Metadata = {
   title: "Ukraine Aid Fund",
@@ -27,8 +26,7 @@ export default function RootLayout({
   children,
   params: { locale },
 }: Readonly<RootLayoutProps>) {
-
-    const messages = useMessages();
+  const messages = useMessages();
   return (
     <html lang={locale}>
       <body className={nunito.className}>

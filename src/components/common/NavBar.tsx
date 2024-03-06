@@ -9,7 +9,7 @@ import LocalSwitcher from "./LocalSwitcher";
 import { NAV_LINKS_UA } from "@/constants/index_ua";
 import { useLocale, useTranslations } from "next-intl";
 
-import logo from "../../../public/images/logo.png";
+import logo from "../../../public/images/Logo.png";
 import Image from "next/image";
 
 function NavBar() {

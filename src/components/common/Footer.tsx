@@ -3,7 +3,7 @@ import { Separator } from "@/components/ui/separator";
 import { useLocale, useTranslations } from "next-intl";
 import { FOOTER_CONTACT_INFO_EN } from "@/constants/index_en";
 import { FOOTER_CONTACT_INFO_UA } from "@/constants/index_ua";
-import logo from '../../../public/images/logo.png'
+import logo from '../../../public/images/Logo.png'
 import Image from "next/image";
 
 function Footer() {

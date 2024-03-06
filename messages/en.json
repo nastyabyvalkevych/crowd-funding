@@ -1,4 +1,7 @@
 {
+  "Footer": {
+    "copyright": "Copyright @ 2024 Nastya Byvalkevych. All rights reserved"
+  },
   "Navbar": {
     "buttons": {
       "signIn": "Sign in",

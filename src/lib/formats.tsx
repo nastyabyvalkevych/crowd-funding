@@ -1,4 +1,4 @@
 export const formats = {
-  br: () => <br />,
-  strong: (text: any) => <strong className="text-blue-500">{text}</strong>,
-};
+    br: () => <br />,
+    strong: (text: any) => <strong className="span">{text}</strong>,
+}

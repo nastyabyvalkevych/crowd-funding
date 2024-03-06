@@ -4,7 +4,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { FOOTER_CONTACT_INFO_EN } from "@/constants/index_en";
 import { FOOTER_CONTACT_INFO_UA } from "@/constants/index_ua";
 
-function FooterSection() {
+function Footer() {
   const t = useTranslations("Footer");
 
   const localActive = useLocale();
@@ -78,4 +78,4 @@ function FooterSection() {
   );
 }
 
-export default FooterSection;
+export default Footer;

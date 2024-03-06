@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import {NextIntlClientProvider, useMessages} from 'next-intl';
 import { Nunito } from "next/font/google";
 import "./globals.css";
+
 import NavBar from "@/components/common/NavBar";
-import {NextIntlClientProvider, useMessages} from 'next-intl';
-import FooterSection from "@/components/sections/FooterSection";
+import FooterSection from "@/components/common/Footer";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -13,7 +14,7 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: "Ukraine Aid Fund",
-  description: "Donat to hepl",
+  description: "Donat to help",
 };
 
 interface RootLayoutProps {

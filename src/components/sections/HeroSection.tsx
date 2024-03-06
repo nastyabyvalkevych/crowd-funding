@@ -1,7 +1,9 @@
 "use client";
+
 import React, { useState } from "react";
-import MainButton from "../common/MainButton";
 import { useLocale, useTranslations } from "next-intl";
+
+import MainButton from "../common/MainButton";
 import { SUM_DONAT_EN } from "@/constants/index_en";
 import { SUM_DONAT_UA } from "@/constants/index_ua";
 import { formats } from "@/lib/formats";
@@ -14,19 +16,17 @@ function HeroSection() {
 
   const localActive = useLocale();
   const sumDonate = localActive === "en" ? SUM_DONAT_EN : SUM_DONAT_UA;
+
   return (
     <div className="relative mt-32 md:mt-8 ">
       <div className="flex justify-center items-center px-4 mt-10">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-6xl font-bold leading-tight text-center">
             {t.rich("HeroSection.title",formats)}
-            {/* Donating is about making a
-            <span className="text-blue-500"> Difference.</span> */}
           </h1>
           <p className="mt-4 text-gray-500 text-center">
             {t("HeroSection.description")}
           </p>
-
           <div className="mt-10 bg-gray rounded-2xl shadow-lg p-8 border-2 border-blue-400">
             <div className="mb-4">
               <h2 className="text-xl font-semibold">
@@ -68,8 +68,6 @@ function HeroSection() {
           </div>
         </div>
       </div>
-
-      
       <div className="absolute top-32  hidden md:block">
         <img src="/images/ellipse.png" alt="orange ellipse" />
       </div>

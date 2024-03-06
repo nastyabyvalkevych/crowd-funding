@@ -7,7 +7,7 @@ interface IProps {
   review: string;
 }
 
-function TestimonialCard({
+function CommandCard({
   imageUrl,
   name,
   role,
@@ -23,17 +23,14 @@ function TestimonialCard({
             className="w-[70px] h-[70px] rounded-full object-cover"
           />
         </div>
-
         <div>
           <p className="text-primary text-[20px]">{name}</p>
           <p className="text-[11px] text-customGray">{role}</p>
         </div>
       </div>
       <div className="text-customGray">{review}</div>
-
-      
     </div>
   );
 }
 
-export default TestimonialCard;
+export default CommandCard;

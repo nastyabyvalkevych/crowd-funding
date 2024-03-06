@@ -5,7 +5,7 @@ import { X } from "lucide-react";
 import Link from "next/link";
 import MainButton from "./MainButton";
 import { NAV_LINKS_EN } from "@/constants/index_en";
-import LocalSwitcher from "../local-switcher";
+import LocalSwitcher from "./LocalSwitcher";
 import { NAV_LINKS_UA } from "@/constants/index_ua";
 import { useLocale, useTranslations } from "next-intl";
 

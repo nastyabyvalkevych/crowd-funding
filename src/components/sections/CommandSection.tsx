@@ -1,11 +1,12 @@
 import React from "react";
 import Header from "../common/Header";
-import TestimonialCard from "../cards/TestimonialCard";
+import TestimonialCard from "../cards/CommandCard";
 import { useLocale, useTranslations } from "next-intl";
 import { COMMAND_EN } from "@/constants/index_en";
 import { COMMAND_UA } from "@/constants/index_ua";
+import CommandCard from "../cards/CommandCard";
 
-function TestimonialSection() {
+function CommandSection() {
 
   const localActive = useLocale();
   const data = localActive === "en" ? COMMAND_EN : COMMAND_UA;
@@ -17,7 +18,7 @@ function TestimonialSection() {
       <Header title={t("Command.miniTitle")} subtitle={t("Command.title")} />
       <div className="flex gap-16 flex-col md:flex-row items-center mt-16">
         {data.map((datum, index) => (
-          <TestimonialCard key={index} {...datum} />
+          <CommandCard key={index} {...datum} />
         ))}
       </div>
       </div>
@@ -25,4 +26,4 @@ function TestimonialSection() {
   );
 }
 
-export default TestimonialSection;
+export default CommandSection;

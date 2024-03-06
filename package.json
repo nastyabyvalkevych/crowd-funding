@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "npx prettier --write \"**/*.{ts,tsx,md}\"",
+    "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
     "@studio-freight/lenis": "^1.0.39",

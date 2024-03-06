@@ -2,31 +2,29 @@
 
 import { useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
-import { ChangeEvent, useTransition } from "react";
+import { useTransition } from "react";
 
 export default function LocalSwitcher() {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const localActive = useLocale();
 
-  const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const nextLocale = e.target.value;
+  const onLanguageChange = () => {
+    const nextLocale = localActive === "en" ? "ua" : "en";
     startTransition(() => {
       router.replace(`/${nextLocale}`);
     });
   };
+
   return (
-    <label className="white flex justify-center">
-      <p className="sr-only">change language</p>
-      <select
-        defaultValue={localActive}
-        className="bg-transparent py-2"
-        onChange={onSelectChange}
+    <div className="white flex justify-center">
+      <button
+        className="bg-transparent py-2 px-4 border border-white rounded"
+        onClick={onLanguageChange}
         disabled={isPending}
       >
-        <option value="en">EN</option>
-        <option value="ua">UA</option>
-      </select>
-    </label>
+        {localActive === "en" ? "EN" : "UA"}
+      </button>
+    </div>
   );
 }

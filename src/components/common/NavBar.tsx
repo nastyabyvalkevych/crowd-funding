@@ -25,6 +25,10 @@ function NavBar() {
   const localActive = useLocale();
   const navLinks = localActive === "en" ? NAV_LINKS_EN : NAV_LINKS_UA;
 
+  const handleLinkClickMobile = () => {
+    setMenu(false); 
+  };
+
   return (
     <div className="md:sticky md:top-0   md:shadow-none z-20 ">
       {/* DESKTOP */}
@@ -98,7 +102,10 @@ function NavBar() {
               {navLinks.map((i, index) => (
                 <Link href={`/${localActive}${i.href}`} key={i.key}>
                   <p
-                    onClick={() => handleLinkClick(index)}
+                    onClick={() => {
+                      handleLinkClick(index);
+                      handleLinkClickMobile(); 
+                    }}
                     className={`transition-all duration-150 cursor-pointer flex items-center gap-2 font-[500] ${
                       activeLink === index
                         ? "text-[#1A8FE3] font-bold"
@@ -112,6 +119,7 @@ function NavBar() {
                   </p>
                 </Link>
               ))}
+
               <LocalSwitcher />
 
               <div className="flex flex-col gap-[16px] select-none">

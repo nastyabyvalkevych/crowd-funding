@@ -9,6 +9,9 @@ import LocalSwitcher from "./LocalSwitcher";
 import { NAV_LINKS_UA } from "@/constants/index_ua";
 import { useLocale, useTranslations } from "next-intl";
 
+import logo from "../../../public/images/logo.png";
+import Image from "next/image";
+
 function NavBar() {
   const [menu, setMenu] = useState(false);
   const toggleMenu = () => {
@@ -35,7 +38,7 @@ function NavBar() {
       <div className="hidden lg:block animate-in fade-in bg-white p-6">
         <div className="flex justify-between mx-[41px] items-center">
           <div>
-            <img src="/images/logo.png" alt="logo" width={120} />
+            <Image src={logo} alt="logo" width={130} height={100}/>
           </div>
           <div className="flex gap-[20px] xl:gap-[50px] text-[16px] items-center select-none">
             {navLinks.map((link, index) => (

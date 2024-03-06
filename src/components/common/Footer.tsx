@@ -3,6 +3,8 @@ import { Separator } from "@/components/ui/separator";
 import { useLocale, useTranslations } from "next-intl";
 import { FOOTER_CONTACT_INFO_EN } from "@/constants/index_en";
 import { FOOTER_CONTACT_INFO_UA } from "@/constants/index_ua";
+import logo from '../../../public/images/logo.png'
+import Image from "next/image";
 
 function Footer() {
   const t = useTranslations("Footer");
@@ -38,7 +40,7 @@ function Footer() {
     <section className="bg-white py-16 px-4 md:px-16">
       <div className="flex justify-between flex-col md:flex-row gap-16">
         <div>
-          <img src="/images/logo.png" alt="footer logo" width={130} />
+          <Image src={logo} alt="footer logo" width={130} height={100} />
         </div>
         <div className="flex justify-between flex-col gap-8 md:flex-row flex-grow">
           {data.map((option, index) => (

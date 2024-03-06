@@ -41,3 +41,29 @@ export const FOOTER_CONTACT_INFO_EN = [
 ];
 
 
+
+
+export const COMMAND_EN = [
+  {
+    imageUrl: "/images/lady.png",
+    name: "Angel Rose",
+    role: "Creative Manager",
+    review:
+      "My desire to help people is combined with my passion for art and design. I believe that graphic design can evoke emotions and motivate people to help those in need.",
+  },
+  {
+    imageUrl: "/images/lady.png",
+    name: "John Doe",
+    role: "Web Developer",
+    review:
+      "Technology can be a powerful tool for doing good. I chose to develop this project because I believe in its potential to change the world for the better through the use of my web development skills.",
+  },
+  {
+    imageUrl: "/images/lady.png",
+    name: "Emily Smith",
+    role: "Graphic Designer",
+    review:
+      "I believe that visual content can make kindness more visible and attractive. I want to use my graphic design skills to make this project aesthetically pleasing and get more people to support it.",
+  },
+];
+

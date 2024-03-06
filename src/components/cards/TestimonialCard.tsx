@@ -5,7 +5,6 @@ interface IProps {
   name: string;
   role: string;
   review: string;
-  hasDotOnBackground?: boolean;
 }
 
 function TestimonialCard({
@@ -13,7 +12,6 @@ function TestimonialCard({
   name,
   role,
   review,
-  hasDotOnBackground = false,
 }: IProps) {
   return (
     <div className="relative flex flex-col gap-8 shadow-lg bg-white  rounded-[20px]  p-8">
@@ -33,18 +31,7 @@ function TestimonialCard({
       </div>
       <div className="text-customGray">{review}</div>
 
-      <div
-        className={`${
-          hasDotOnBackground
-            ? "absolute -bottom-8 right-6 rotate-[45deg] -z-10 hidden md:block"
-            : "hidden"
-        }`}
-      >
-        <img
-          src="/images/blue_rectangular_dots.png"
-          alt="blue rectangular dots"
-        />
-      </div>
+      
     </div>
   );
 }

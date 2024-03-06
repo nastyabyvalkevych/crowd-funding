@@ -1,45 +1,27 @@
 import React from "react";
 import Header from "../common/Header";
 import TestimonialCard from "../cards/TestimonialCard";
+import { useLocale, useTranslations } from "next-intl";
+import { COMMAND_EN } from "@/constants/index_en";
+import { COMMAND_UA } from "@/constants/index_ua";
 
 function TestimonialSection() {
-  const data = [
-    {
-      imageUrl: "/images/lady.png",
-      name: "Angel Rose",
-      role: "Creative Manager",
-      review:
-        "There are many variations passages of Lorem Ipsum majority some by words which don't look . ",
-    },
-    {
-      imageUrl: "/images/lady.png",
-      name: "Angel Rose",
-      role: "Creative Manager",
-      review:
-        "There are many variations passages of Lorem Ipsum majority some by words which don't look . ",
-    },
-    {
-      imageUrl: "/images/lady.png",
-      name: "Angel Rose",
-      role: "Creative Manager",
-      hasDotOnBackground: true,
-      review:
-        "There are many variations passages of Lorem Ipsum majority some by words which don't look . ",
-    },
-  ];
+
+  const localActive = useLocale();
+  const data = localActive === "en" ? COMMAND_EN : COMMAND_UA;
+  const t = useTranslations("About");
+  
   return (
-    <section className="relative">
-      <Header title="Testimonial" subtitle="People Talk about us" />
+    <>
+      <div className="relative">
+      <Header title={t("Command.miniTitle")} subtitle={t("Command.title")} />
       <div className="flex gap-16 flex-col md:flex-row items-center mt-16">
         {data.map((datum, index) => (
           <TestimonialCard key={index} {...datum} />
         ))}
       </div>
-
-      {/* <div className="absolute top-0 left-0 hidden md:block">
-        <img src="/images/blue_rectangular_dots.png" alt="rectangular dots" />
-      </div> */}
-    </section>
+      </div>
+    </>
   );
 }
 

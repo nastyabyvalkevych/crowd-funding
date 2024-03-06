@@ -36,10 +36,13 @@
       }
     },
     "Services": {
-      "titile": "Be The <strong>Change</strong>",
-      "description": "We move with make a Creative Strategy for help your business goal, we help to improve your income by a services we have. make your content look interesting and make people look for your business",
-      "readMore": "Read more"
+      "miniTitle": "Be The",
+      "title": "Change",
+      "description": "Donate today to be a part of positive change in society. <br></br>Your contribution will help us implement projects aimed at supporting and developing various charitable initiatives. <br></br><strong>Be the change</strong> you want to see in the world - join us today."
+    },
+    "Command": {
+      "miniTitle": "Our Selfless",
+      "title": "Team"
     }
   }
 }
-     

@@ -1,14 +1,23 @@
+import { authMiddleware } from "@clerk/nextjs";
+
 import createMiddleware from "next-intl/middleware";
 
-export default createMiddleware({
-  // A list of all locales that are supported
+const intlMiddleware = createMiddleware({
   locales: ["en", "ua"],
 
-  // Used when no locale matches
   defaultLocale: "ua",
 });
 
+export default authMiddleware({
+  beforeAuth: (req) => {
+    // Execute next-intl middleware before Clerk's auth middleware
+    return intlMiddleware(req);
+  },
+
+  // Ensure that locale specific sign-in pages are public
+  publicRoutes: ["/", "/ua", "/:locale/sign-in"],
+});
+
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ["/", "/(ua|en)/:path*"],
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)"],
 };

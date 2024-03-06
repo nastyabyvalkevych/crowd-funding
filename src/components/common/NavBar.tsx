@@ -8,16 +8,18 @@ import { NAV_LINKS_EN } from "@/constants/index_en";
 import LocalSwitcher from "./LocalSwitcher";
 import { NAV_LINKS_UA } from "@/constants/index_ua";
 import { useLocale, useTranslations } from "next-intl";
+import { useSession } from "@clerk/clerk-react";
 
 import logo from "../../../public/images/Logo.png";
 import Image from "next/image";
+import { UserButton } from "@clerk/nextjs";
 
 function NavBar() {
   const [menu, setMenu] = useState(false);
   const toggleMenu = () => {
     setMenu(!menu);
   };
-
+  const { isSignedIn } = useSession();
   const [activeLink, setActiveLink] = useState(0);
   const t = useTranslations("Navbar");
 
@@ -38,7 +40,7 @@ function NavBar() {
       <div className="hidden lg:block animate-in fade-in bg-white p-6">
         <div className="flex justify-between mx-[41px] items-center">
           <div>
-            <Image src={logo} alt="logo" width={130} height={100}/>
+            <Image src={logo} alt="logo" width={130} height={100} />
           </div>
           <div className="flex gap-[20px] xl:gap-[50px] text-[16px] items-center select-none">
             {navLinks.map((link, index) => (
@@ -61,15 +63,17 @@ function NavBar() {
             <LocalSwitcher />
           </div>
           <div className="flex items-center gap-[32px] select-none">
-            <MainButton
-              text={t("buttons.signIn")}
-              classes="bg-white border border-primary text-primary font-bold hover:bg-white shadow-none"
-            />
-
-            {/* <MainButton
-              text={t("buttons.signUp")}
-              classes="bg-[#1A8FE3] text-white font-bold hover:bg-[#1A8FE3] shadow-none"
-            /> */}
+            {isSignedIn ? (
+              ""
+            ) : (
+              <Link href="/ua/sign-in">
+                <MainButton
+                  text={t("buttons.signIn")}
+                  classes="bg-white border border-primary text-primary font-bold hover:bg-white shadow-none"
+                />
+              </Link>
+            )}
+            <UserButton afterSignOutUrl={`/${localActive}`} />
           </div>
         </div>
       </div>
@@ -122,19 +126,24 @@ function NavBar() {
                   </p>
                 </Link>
               ))}
-
               <LocalSwitcher />
-
               <div className="flex flex-col gap-[16px] select-none">
-                <MainButton
-                  text={t("buttons.signIn")}
-                  classes="bg-white border border-primary text-primary font-bold hover:bg-white shadow-none"
-                />
-
-                {/* <MainButton
-                  text={t("buttons.signUp")}
-                  classes="bg-[#1A8FE3] text-white font-bold hover:bg-[#1A8FE3] shadow-none"
-                /> */}
+                {isSignedIn ? (
+                  ""
+                ) : (
+                  <Link
+                    href="/ua/sign-in"
+                    onClick={() => {
+                      handleLinkClickMobile();
+                    }}
+                  >
+                    <MainButton
+                      text={t("buttons.signIn")}
+                      classes="bg-white border border-primary text-primary font-bold hover:bg-white shadow-none"
+                    />
+                  </Link>
+                )}
+                <UserButton afterSignOutUrl={`/${localActive}`} />
               </div>
             </div>
           </div>

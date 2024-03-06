@@ -65,6 +65,7 @@ function HeroSection() {
               classes="w-full py-3 "
             />
           </div>
+          
         </div>
       </div>
       <div className="absolute top-32  hidden md:block">

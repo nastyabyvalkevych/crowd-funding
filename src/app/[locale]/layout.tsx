@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Nunito } from "next/font/google";
 import "./globals.css";
-
+import { ClerkProvider } from "@clerk/nextjs";
 import NavBar from "@/components/common/NavBar";
 import FooterSection from "@/components/common/Footer";
 
@@ -28,16 +28,18 @@ export default function RootLayout({
 }: Readonly<RootLayoutProps>) {
   const messages = useMessages();
   return (
-    <html lang={locale}>
-      <body className={nunito.className}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <NavBar />
-          {children}
-          <div className="mt-16 md:mt-32">
-            <FooterSection />
-          </div>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang={locale}>
+        <body className={nunito.className}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <NavBar />
+            {children}
+            <div className="mt-16 md:mt-32">
+              <FooterSection />
+            </div>
+          </NextIntlClientProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

@@ -15,11 +15,7 @@ const config: Config = {
         dark: "#1D1D1D",
         customGray: "#464646",
       },
-      backgroundImage: {
-        "bg-1": "url(/images/p1.png)",
-        "bg-2": "url(/images/p2.png)",
-        "bg-3": "url(/images/p3.png)",
-      },
+     
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

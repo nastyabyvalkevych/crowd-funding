@@ -13,9 +13,11 @@
   "dependencies": {
     "@clerk/nextjs": "^4.29.9",
     "@studio-freight/lenis": "^1.0.39",
+    "axios": "^1.6.7",
     "class-variance-authority": "^0.7.0",
     "framer-motion": "^11.0.8",
     "lucide-react": "^0.344.0",
+    "mongoose": "^8.2.1",
     "next": "14.1.2",
     "next-intl": "^3.9.1",
     "radix-ui": "^1.0.1",

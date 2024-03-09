@@ -1,9 +1,12 @@
+import { handleNewUserRegistration } from "@/actions/users";
 import DonateSection from "@/components/sections/DonateSection";
 import { currentUser } from "@clerk/nextjs";
 
 export default async function About() {
   const loggedInUserData = await currentUser();
   // console.log(loggedInUserData);
+
+  await handleNewUserRegistration();
   return (
     <div>
       <div className="px-4 md:px-16 flex flex-col gap-8 md:gap-20 ">

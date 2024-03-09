@@ -13,7 +13,7 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: "Ukraine Aid Fund",
-  description: "Donat to help",
+  description: "Donate to help",
 };
 
 interface RootLayoutProps {

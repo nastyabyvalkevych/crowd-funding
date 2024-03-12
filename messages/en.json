@@ -2,6 +2,9 @@
   "Footer": {
     "copyright": "Copyright @ 2024 Nastya Byvalkevych. All rights reserved"
   },
+  "AccessRole": {
+    "warnings": "You are not authorized to access this page. Please contact admin."
+  },
   "Navbar": {
     "buttons": {
       "signIn": "Sign in",

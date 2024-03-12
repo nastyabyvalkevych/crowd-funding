@@ -15,7 +15,20 @@ export default authMiddleware({
   },
 
   // Ensure that locale specific sign-in pages are public
-  publicRoutes: ["/", "/ua", "/:locale/sign-in"],
+  publicRoutes: [
+    "/",
+    "/ua",
+    "/ua/about",
+    "/ua/blog",
+    "/ua/contact",
+    "/ua/donation",
+    "/en",
+    "/en/about",
+    "/en/blog",
+    "/en/contact",
+    "/en/donation",
+    "/:locale/sign-in",
+  ],
 });
 
 export const config = {

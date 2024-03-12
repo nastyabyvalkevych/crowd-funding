@@ -5,6 +5,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import NavBar from "@/components/common/NavBar";
 import FooterSection from "@/components/common/Footer";
+import LayoutProvider from "@/providers/layout-provider";
 
 const nunito = Nunito({
   subsets: ["latin"],
@@ -32,8 +33,8 @@ export default function RootLayout({
       <html lang={locale}>
         <body className={nunito.className}>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            <NavBar />
-            {children}
+            <LayoutProvider> {children}</LayoutProvider>
+
             <div className="mt-16 md:mt-32">
               <FooterSection />
             </div>

@@ -6,7 +6,35 @@ export const NAV_LINKS_EN = [
   { href: "/blog", key: "blog ", label: "Blog " },
   { href: "/contact", key: "contact", label: "Contact" },
 ];
+export const USER_MENU_EN = [
+  {
+    name: "Dashboard",
+    url: "/profile/dashboard",
+  },
+  {
+    name: "My donations",
+    url: "/profile/donations",
+  },
+];
 
+export const ADMIN_MENU_EN = [
+  {
+    name: "Dashboard",
+    url: "/admin/dashboard",
+  },
+  {
+    name: "Donations",
+    url: "/admin/donations",
+  },
+  {
+    name: "Campaigns",
+    url: "/admin/campaigns",
+  },
+  {
+    name: "Users",
+    url: "/admin/users",
+  },
+];
 export const SUM_DONAT_EN = [
   { sum: 100, currency: "$" },
   { sum: 200, currency: "$" },

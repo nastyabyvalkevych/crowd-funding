@@ -36,3 +36,19 @@ export const handleNewUserRegistration = async () => {
     };
   }
 };
+
+export const getCurrentUserDataFromMongoDB = async () => {
+  try {
+    const loggedInUserData = await currentUser();
+    const mongoUser = await UserModel.findOne({
+      clerkUserId: loggedInUserData?.id,
+    });
+    return {
+      data: JSON.parse(JSON.stringify(mongoUser)),
+    };
+  } catch (error: any) {
+    return {
+      error: error.message,
+    };
+  }
+};

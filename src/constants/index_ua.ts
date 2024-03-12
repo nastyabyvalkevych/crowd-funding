@@ -7,6 +7,36 @@ export const NAV_LINKS_UA = [
   { href: "/contact", key: "contact", label: "Контакти" },
 ];
 
+export const USER_MENU_UA = [
+  {
+    name: "Профіль",
+    url: "/profile/dashboard",
+  },
+  {
+    name: "Мої донати",
+    url: "/profile/donations",
+  },
+];
+
+export const ADMIN_MENU_UA = [
+  {
+    name: "Профіль",
+    url: "/admin/dashboard",
+  },
+  {
+    name: "Донати",
+    url: "/admin/donations",
+  },
+  {
+    name: "Компанії",
+    url: "/admin/campaigns",
+  },
+  {
+    name: "Волонтери",
+    url: "/admin/users",
+  },
+];
+
 export const SUM_DONAT_UA = [
   { sum: 200, currency: "грн" },
   { sum: 500, currency: "грн" },

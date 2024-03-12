@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema(
       default: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 // check if the user model already exists , if its exits delete it

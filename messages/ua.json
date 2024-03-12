@@ -2,6 +2,9 @@
   "Footer": {
     "copyright": "Copyright @ 2024 Nastya Byvalkevych. Усі права захищено"
   },
+  "AccessRole": {
+    "warnings": "Ви не маєте права доступу до цієї сторінки. Зверніться до адміністратора."
+  },
   "Navbar": {
     "buttons": {
       "signIn": "Увійти",

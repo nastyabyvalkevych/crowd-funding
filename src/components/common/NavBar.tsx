@@ -13,26 +13,34 @@ import { useSession } from "@clerk/clerk-react";
 import logo from "../../../public/images/Logo.png";
 import Image from "next/image";
 import { UserButton } from "@clerk/nextjs";
+import { Button, Dropdown, Spin, message } from "antd";
+import { useRouter } from "next/navigation";
+import React from "react";
 
-function NavBar() {
+function NavBar({ currentUser, menuToShow }: any) {
+  // Menu Ui
   const [menu, setMenu] = useState(false);
+  const [activeLink, setActiveLink] = useState(0);
+  const router = useRouter();
+
   const toggleMenu = () => {
     setMenu(!menu);
   };
-  const { isSignedIn } = useSession();
-  const [activeLink, setActiveLink] = useState(0);
-  const t = useTranslations("Navbar");
 
   const handleLinkClick = (index: number) => {
     setActiveLink(index);
   };
 
-  const localActive = useLocale();
-  const navLinks = localActive === "en" ? NAV_LINKS_EN : NAV_LINKS_UA;
-
   const handleLinkClickMobile = () => {
     setMenu(false);
   };
+
+  //Localization
+  const localActive = useLocale();
+  const t = useTranslations("Navbar");
+  const navLinks = localActive === "en" ? NAV_LINKS_EN : NAV_LINKS_UA;
+
+  const { isSignedIn } = useSession();
 
   return (
     <div className="md:sticky md:top-0   md:shadow-none z-20 ">
@@ -64,7 +72,23 @@ function NavBar() {
           </div>
           <div className="flex items-center gap-[32px] select-none">
             {isSignedIn ? (
-              ""
+              <div className="bg-white rounded py-2 px-3 flex items-center gap-5">
+                <Dropdown
+                  menu={{
+                    items: menuToShow.map((menu: any) => ({
+                      key: menu.name,
+                      label: menu.name,
+                      onClick: () => {
+                        router.push(menu.url);
+                      },
+                    })),
+                  }}
+                >
+                  <Button type="link" className="text-[#1A8FE3]">
+                    {currentUser?.userName}
+                  </Button>
+                </Dropdown>
+              </div>
             ) : (
               <Link href="/ua/sign-in">
                 <MainButton
@@ -127,9 +151,28 @@ function NavBar() {
                 </Link>
               ))}
               <LocalSwitcher />
-              <div className="flex flex-col gap-[16px] select-none">
+              <div className="flex flex-col gap-[16px] select-none items-center">
+                <UserButton afterSignOutUrl={`/${localActive}`} />
+
                 {isSignedIn ? (
-                  ""
+                  <div className="bg-white rounded py-2 px-3 flex items-center gap-5">
+                    <Dropdown
+                      menu={{
+                        items: menuToShow.map((menu: any) => ({
+                          key: menu.name,
+                          label: menu.name,
+                          onClick: () => {
+                            router.push(menu.url);
+                            handleLinkClickMobile();
+                          },
+                        })),
+                      }}
+                    >
+                      <Button type="link" className="text-[#1A8FE3]">
+                        {currentUser?.userName}
+                      </Button>
+                    </Dropdown>
+                  </div>
                 ) : (
                   <Link
                     href="/ua/sign-in"
@@ -143,7 +186,6 @@ function NavBar() {
                     />
                   </Link>
                 )}
-                <UserButton afterSignOutUrl={`/${localActive}`} />
               </div>
             </div>
           </div>

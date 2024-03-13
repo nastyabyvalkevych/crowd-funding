@@ -1,5 +1,5 @@
 import React from "react";
-import CampaignForm from "../_components/campaign-form";
+import CampaignForm from "../_components/CampaignForm";
 import PageTitle from "@/components/common/PageTitle";
 import Block from "@/components/common/Block";
 

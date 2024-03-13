@@ -1,4 +1,5 @@
 "use client";
+import { addNewCampaign } from "@/actions/campaigns";
 import { uploadImagesToFirebaseAndReturnUrls } from "@/helpers/uploads";
 import {
   Button,
@@ -89,7 +90,18 @@ function CampaignForm({ initialData, isEditForm = false }: Props) {
 
       values.images = [...existingImages, ...newlyUploadedImages];
 
-      console.log(values);
+      // console.log(values);
+      let response: any = null;
+      if (isEditForm) {
+        // values._id = initialData._id;
+        // response = await editCampaign(values);
+      } else {
+        response = await addNewCampaign(values);
+      }
+      if (response.error) throw new Error(response.error);
+      message.success(response.message);
+      router.refresh();
+      router.push("/admin/campaigns");
     } catch (error: any) {
       message.error(error.message);
     } finally {

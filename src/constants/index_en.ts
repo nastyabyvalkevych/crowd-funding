@@ -2,7 +2,7 @@
 export const NAV_LINKS_EN = [
   { href: "/", key: "home", label: "Home" },
   { href: "/about", key: "about", label: "About" },
-  { href: "/donation", key: "donation", label: "Donation" },
+  { href: "/campaign", key: "campaign", label: "Campaign" },
   { href: "/blog", key: "blog ", label: "Blog " },
   { href: "/contact", key: "contact", label: "Contact" },
 ];

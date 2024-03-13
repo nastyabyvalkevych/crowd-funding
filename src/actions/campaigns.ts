@@ -24,3 +24,20 @@ export const addNewCampaign = async (reqBody: any) => {
   }
 };
 
+export const editCampaign = async (reqBody: any) => {
+  try {
+    await CampaignModel.findOneAndUpdate(
+      { _id: reqBody._id },
+      { $set: reqBody }
+    );
+    revalidatePath(`/admin/campaigns/edit-campaign/${reqBody._id}`);
+    return {
+      message: "Кампанію успішно оновлена!",
+    };
+  } catch (error: any) {
+    return {
+      error: error.message,
+    };
+  }
+};
+

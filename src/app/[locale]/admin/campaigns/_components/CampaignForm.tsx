@@ -1,9 +1,8 @@
 "use client";
-import { addNewCampaign } from "@/actions/campaigns";
+import { addNewCampaign, editCampaign } from "@/actions/campaigns";
 import { uploadImagesToFirebaseAndReturnUrls } from "@/helpers/uploads";
 import {
   Button,
-  DatePicker,
   Form,
   Input,
   Select,
@@ -94,8 +93,8 @@ function CampaignForm({ initialData, isEditForm = false }: Props) {
       // console.log(values);
       let response: any = null;
       if (isEditForm) {
-        // values._id = initialData._id;
-        // response = await editCampaign(values);
+        values._id = initialData._id;
+        response = await editCampaign(values);
       } else {
         response = await addNewCampaign(values);
       }

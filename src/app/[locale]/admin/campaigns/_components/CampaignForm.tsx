@@ -67,17 +67,18 @@ interface Props {
 function CampaignForm({ initialData, isEditForm = false }: Props) {
   const [loading = false, setLoading] = React.useState<boolean>(false);
   const [isActive, setIsActive] = React.useState(initialData?.isActive || true);
+  const [showDonarsInCampaign, setShowDonarsInCampaign] = React.useState(
+    initialData?.showDonarsInCampaign || true
+  );
   const [newlySelectedFiles = [], setNewlySelectedFiles] = React.useState<
     any[]
   >([]);
   const [existingImages, setExistingImages] = React.useState<any[]>(
     initialData?.images || []
   );
-  const [showDonarsInCampaign, setShowDonarsInCampaign] = React.useState(
-    initialData?.showDonarsInCampaign || true
-  );
 
   const router = useRouter();
+
   const onFinish = async (values: any) => {
     try {
       setLoading(true);
@@ -176,7 +177,8 @@ function CampaignForm({ initialData, isEditForm = false }: Props) {
               { required: true, message: "Будь ласка, введіть дату початку" },
             ]}
           >
-            <DatePicker />
+            {/* <DatePicker /> */}
+            <input type="date" />
           </Form.Item>
 
           <Form.Item
@@ -189,7 +191,8 @@ function CampaignForm({ initialData, isEditForm = false }: Props) {
               },
             ]}
           >
-            <DatePicker />
+            {/* <DatePicker /> */}
+            <input type="date" />
           </Form.Item>
         </div>
 
@@ -222,6 +225,27 @@ function CampaignForm({ initialData, isEditForm = false }: Props) {
         >
           Завантажити зображення
         </Upload>
+
+        <div className="flex flex-wrap mt-5 gap-5">
+          {existingImages.map((image, index) => (
+            <div
+              className="p-3 border rounded flex flex-col gap-2 border-dashed"
+              key={index}
+            >
+              <img className="w-24 h-24 object-cover" src={image} alt="" />
+              <span
+                className="text-red-500 cursor-pointer"
+                onClick={() => {
+                  setExistingImages((prev) =>
+                    prev.filter((_, i) => i !== index)
+                  );
+                }}
+              >
+                Видалити
+              </span>
+            </div>
+          ))}
+        </div>
 
         <div className="flex justify-end gap-5 mt-5">
           <Button onClick={() => router.push("/admin/campaigns")}>

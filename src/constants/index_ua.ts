@@ -28,7 +28,7 @@ export const ADMIN_MENU_UA = [
     url: "/admin/donations",
   },
   {
-    name: "Компанії",
+    name: "Кaмпанії",
     url: "/admin/campaigns",
   },
   {

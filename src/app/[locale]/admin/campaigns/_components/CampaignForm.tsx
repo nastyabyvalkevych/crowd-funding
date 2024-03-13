@@ -7,7 +7,7 @@ import React from "react";
 
 const { TextArea } = Input;
 
-const categories = [
+export const categories = [
   {
     value: "military_and_veterans_support",
     label: "Допомога військовим та ветеранам",

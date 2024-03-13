@@ -13,7 +13,7 @@ import { useSession } from "@clerk/clerk-react";
 import logo from "../../../public/images/Logo.png";
 import Image from "next/image";
 import { UserButton } from "@clerk/nextjs";
-import { Button, Dropdown, Spin, message } from "antd";
+import { Button, Dropdown } from "antd";
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 

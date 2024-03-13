@@ -6,12 +6,12 @@ import { useTranslations } from "next-intl";
 import Header from "@/components/common/Header";
 import AboutUsSection from "@/components/sections/AboutUsSection";
 import TestimonialSection from "@/components/sections/CommandSection";
+import Block from "@/components/common/Block";
 
 export default function About() {
   const t = useTranslations("About");
   return (
-    <div>
-      <div className="px-4 md:px-16 flex flex-col gap-8 md:gap-20 ">
+   <Block>
         <AboutUsSection />
         <div className="relative">
           <Header
@@ -23,7 +23,6 @@ export default function About() {
           </p>
         </div>
         <TestimonialSection />
-      </div>
-    </div>
+    </Block>
   );
 }

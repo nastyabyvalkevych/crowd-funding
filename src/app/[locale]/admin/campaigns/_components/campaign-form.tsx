@@ -1,0 +1,199 @@
+"use client";
+import {
+  Button,
+  DatePicker,
+  Form,
+  Input,
+  Select,
+  Switch,
+  Upload,
+  message,
+} from "antd";
+import { useRouter } from "next/navigation";
+import React from "react";
+
+const { TextArea } = Input;
+
+const categories = [
+  {
+    value: "military_and_veterans_support",
+    label: "Допомога військовим та ветеранам",
+  },
+  {
+    value: "social_support_and_care",
+    label: "Соціальна допомога та опіка",
+  },
+  {
+    value: "medical_aid",
+    label: "Медична допомога",
+  },
+  {
+    value: "environmental_awareness_and_protection",
+    label: "Екологічна свідомість та захист довкілля",
+  },
+  {
+    value: "education_and_youth_support",
+    label: "Освіта та підтримка молоді",
+  },
+  {
+    value: "cultural_heritage_and_creativity",
+    label: "Культурна спадщина та творчість",
+  },
+  {
+    value: "support_for_vulnerable_groups",
+    label: "Підтримка вразливих груп населення",
+  },
+  {
+    value: "rural_development",
+    label: "Розвиток сільських територій",
+  },
+  {
+    value: "technological_support_and_digitalization",
+    label: "Технологічна підтримка та діджиталізація",
+  },
+  {
+    value: "fight_against_crime_and_corruption",
+    label: "Боротьба зі злочинністю та корупцією",
+  },
+];
+
+interface Props {
+  initialData?: any;
+  isEditForm?: boolean;
+}
+
+function CampaignForm({ initialData, isEditForm = false }: Props) {
+  const [loading = false, setLoading] = React.useState<boolean>(false);
+  const [isActive, setIsActive] = React.useState(
+    initialData?.isActive || true
+  );
+  const [showDonarsInCampaign, setShowDonarsInCampaign] = React.useState(
+    initialData?.showDonarsInCampaign || true
+  );
+  
+  const router = useRouter();
+  const onFinish = async (values: any) => {
+    values.isActive = isActive;
+    values.showDonarsInCampaign = showDonarsInCampaign;
+    // setLoading(true);
+    console.log(values);
+    
+  };
+
+  return (
+    <div className="mt-5">
+      <Form
+        layout="vertical"
+        onFinish={(values) => {
+          onFinish(values);
+        }}
+        initialValues={initialData}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+          <div className="lg:col-span-3">
+            <Form.Item
+              label="Назва"
+              name="name"
+              rules={[{ required: true, message: "Будь ласка, введіть назву" }]}
+            >
+              <Input />
+            </Form.Item>
+          </div>
+
+          <div className="lg:col-span-3">
+            <Form.Item
+              label="Опис"
+              name="description"
+              rules={[{ required: true, message: "Будь ласка, введіть опис" }]}
+            >
+              <TextArea />
+            </Form.Item>
+          </div>
+
+          <Form.Item
+            name="organizer"
+            label="Організатор"
+            rules={[
+              { required: true, message: "Будь ласка, введіть органайзер" },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item
+            name="targetAmount"
+            label="Цільова сума"
+            rules={[
+              { required: true, message: "Будь ласка, введіть цільову суму" },
+            ]}
+          >
+            <Input min={100} />
+          </Form.Item>
+
+          <Form.Item
+            name="category"
+            label="Категорія"
+            rules={[
+              { required: true, message: "Будь ласка, введіть категорію" },
+            ]}
+          >
+            <Select options={categories} />
+          </Form.Item>
+
+          <Form.Item
+            name="startDate"
+            label="Дата початку"
+            rules={[
+              { required: true, message: "Будь ласка, введіть дату початку" },
+            ]}
+          >
+            <DatePicker />
+          </Form.Item>
+
+          <Form.Item
+            name="endDate"
+            label="Дата закінчення"
+            rules={[
+              {
+                required: true,
+                message: "Будь ласка, введіть дату закінчення",
+              },
+            ]}
+          >
+            <DatePicker />
+          </Form.Item>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-5">
+          <div className="flex gap-5">
+            <span>Активний?</span>
+            <Switch
+              checked={isActive}
+              onChange={(checked) => setIsActive(checked)}
+              className=""
+            />
+          </div>
+
+          <div className="flex gap-5">
+            <span>Показати донари в кампанії?</span>
+            <Switch
+              checked={showDonarsInCampaign}
+              onChange={(checked) => setShowDonarsInCampaign(checked)}
+            />
+          </div>
+        </div>
+
+        <div className="flex justify-end gap-5 mt-5">
+          <Button onClick={() => router.push("/admin/campaigns")}>
+            Скасувати
+          </Button>
+          <Button htmlType="submit" loading={loading}>
+            Надіслати
+          </Button>
+        </div>
+      </Form>
+    </div>
+  );
+}
+
+export default CampaignForm;

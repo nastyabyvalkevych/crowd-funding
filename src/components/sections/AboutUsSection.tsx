@@ -9,8 +9,7 @@ function AboutUsSection() {
 
   return (
     <>
-      <div className="relative mt-16 md:mt-10 ">
-        <div>
+    
           <Header
             title={t("AboutUs.titile")}
             subtitle={t("AboutUs.description")}
@@ -32,8 +31,7 @@ function AboutUsSection() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+      
     </>
   );
 }

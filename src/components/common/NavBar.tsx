@@ -14,7 +14,7 @@ import logo from "../../../public/images/Logo.png";
 import Image from "next/image";
 import { UserButton } from "@clerk/nextjs";
 import { Button, Dropdown, Spin, message } from "antd";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
 function NavBar({ currentUser, menuToShow }: any) {
@@ -41,7 +41,9 @@ function NavBar({ currentUser, menuToShow }: any) {
   const navLinks = localActive === "en" ? NAV_LINKS_EN : NAV_LINKS_UA;
 
   const { isSignedIn } = useSession();
+  const pathname = usePathname();
 
+const isAdminRoute = pathname.includes("/admin");
   return (
     <div className="md:sticky md:top-0   md:shadow-none z-20 ">
       {/* DESKTOP */}
@@ -68,7 +70,7 @@ function NavBar({ currentUser, menuToShow }: any) {
                 </p>
               </Link>
             ))}
-            <LocalSwitcher />
+            {!isAdminRoute && <LocalSwitcher />}
           </div>
           <div className="flex items-center gap-[32px] select-none">
             {isSignedIn ? (
@@ -109,7 +111,13 @@ function NavBar({ currentUser, menuToShow }: any) {
       >
         <div className="flex justify-between mx-[10px]">
           <div className="flex gap-[50px] text-[16px] items-center select-none">
-            <img src="/images/logo.png" alt="logo" className="w-[6rem]" />
+            <Image
+              src={logo}
+              alt="logo"
+              width={130}
+              height={100}
+              className="w-[6rem]"
+            />
           </div>
           <div className="flex items-center gap-[40px]">
             {menu ? (
@@ -150,7 +158,7 @@ function NavBar({ currentUser, menuToShow }: any) {
                   </p>
                 </Link>
               ))}
-              <LocalSwitcher />
+              {!isAdminRoute && <LocalSwitcher />}
               <div className="flex flex-col gap-[16px] select-none items-center">
                 <UserButton afterSignOutUrl={`/${localActive}`} />
 

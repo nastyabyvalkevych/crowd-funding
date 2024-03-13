@@ -19,7 +19,7 @@ const campaignSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 if (mongoose.models && mongoose.models.campaigns) {

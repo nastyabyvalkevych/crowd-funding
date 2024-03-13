@@ -8,7 +8,7 @@ interface CampaignType {
   collectedAmount: number;
   startDate: string;
   endDate: string;
-  isActive : boolean;
+  isActive: boolean;
   showDonarsInCampaign: boolean;
   createdBy: UserType;
 }

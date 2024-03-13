@@ -28,7 +28,7 @@ export const editCampaign = async (reqBody: any) => {
   try {
     await CampaignModel.findOneAndUpdate(
       { _id: reqBody._id },
-      { $set: reqBody }
+      { $set: reqBody },
     );
     revalidatePath(`/admin/campaigns/edit-campaign/${reqBody._id}`);
     return {
@@ -54,4 +54,3 @@ export const deleteCampaign = async (id: string) => {
     };
   }
 };
-

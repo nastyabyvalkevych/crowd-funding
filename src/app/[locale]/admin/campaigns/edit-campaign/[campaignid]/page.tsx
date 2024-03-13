@@ -17,7 +17,6 @@ interface Props {
 
 async function EditCampaignPage({ params }: Props) {
   const campaign = await CampaignModel.findById(params.campaignid);
-  console.log(campaign)
   return (
     <Block>
       <PageTitle title="Редагувати кампанію" />

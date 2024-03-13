@@ -11,18 +11,18 @@ import Block from "@/components/common/Block";
 export default function About() {
   const t = useTranslations("About");
   return (
-   <Block>
-        <AboutUsSection />
-        <div className="relative">
-          <Header
-            title={t("Services.miniTitle")}
-            subtitle={t("Services.title")}
-          />
-          <p className="text-center text-customGray my-8">
-            {t.rich("Services.description", formats)}
-          </p>
-        </div>
-        <TestimonialSection />
+    <Block>
+      <AboutUsSection />
+      <div className="relative">
+        <Header
+          title={t("Services.miniTitle")}
+          subtitle={t("Services.title")}
+        />
+        <p className="text-center text-customGray my-8">
+          {t.rich("Services.description", formats)}
+        </p>
+      </div>
+      <TestimonialSection />
     </Block>
   );
 }

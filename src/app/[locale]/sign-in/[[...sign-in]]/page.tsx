@@ -8,10 +8,10 @@ export default function Page() {
 
   return (
     <Block>
-        <Header title={t("Section.miniTitle")} subtitle={t("Section.title")} />
-        <div className="flex justify-center items-center relative  mt-8">
-          <SignIn />
-        </div>
+      <Header title={t("Section.miniTitle")} subtitle={t("Section.title")} />
+      <div className="flex justify-center items-center relative  mt-8">
+        <SignIn />
+      </div>
     </Block>
   );
 }

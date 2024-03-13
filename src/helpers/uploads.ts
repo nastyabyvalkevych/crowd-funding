@@ -8,13 +8,13 @@ export const uploadImagesToFirebaseAndReturnUrls = async (files: any[]) => {
     const uploadedImagesResponses = await Promise.all(
       files.map((file) => {
         return uploadBytes(ref(storage, `donation/${file.name}`), file);
-      })
+      }),
     );
 
     const uploadedImagesURLs = await Promise.all(
       uploadedImagesResponses.map((response) => {
         return getDownloadURL(response.ref);
-      })
+      }),
     );
 
     return uploadedImagesURLs;

@@ -1,15 +1,7 @@
 "use client";
 import { addNewCampaign, editCampaign } from "@/actions/campaigns";
 import { uploadImagesToFirebaseAndReturnUrls } from "@/helpers/uploads";
-import {
-  Button,
-  Form,
-  Input,
-  Select,
-  Switch,
-  Upload,
-  message,
-} from "antd";
+import { Button, Form, Input, Select, Switch, Upload, message } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -67,13 +59,13 @@ function CampaignForm({ initialData, isEditForm = false }: Props) {
   const [loading = false, setLoading] = React.useState<boolean>(false);
   const [isActive, setIsActive] = React.useState(initialData?.isActive || true);
   const [showDonarsInCampaign, setShowDonarsInCampaign] = React.useState(
-    initialData?.showDonarsInCampaign || true
+    initialData?.showDonarsInCampaign || true,
   );
   const [newlySelectedFiles = [], setNewlySelectedFiles] = React.useState<
     any[]
   >([]);
   const [existingImages, setExistingImages] = React.useState<any[]>(
-    initialData?.images || []
+    initialData?.images || [],
   );
 
   const router = useRouter();
@@ -84,9 +76,8 @@ function CampaignForm({ initialData, isEditForm = false }: Props) {
       values.isActive = isActive;
       values.showDonarsInCampaign = showDonarsInCampaign;
 
-      const newlyUploadedImages = await uploadImagesToFirebaseAndReturnUrls(
-        newlySelectedFiles
-      );
+      const newlyUploadedImages =
+        await uploadImagesToFirebaseAndReturnUrls(newlySelectedFiles);
 
       values.images = [...existingImages, ...newlyUploadedImages];
 
@@ -236,7 +227,7 @@ function CampaignForm({ initialData, isEditForm = false }: Props) {
                 className="text-red-500 cursor-pointer"
                 onClick={() => {
                   setExistingImages((prev) =>
-                    prev.filter((_, i) => i !== index)
+                    prev.filter((_, i) => i !== index),
                   );
                 }}
               >

@@ -1,6 +1,7 @@
 "use client";
 
-import { Button, Table } from "antd";
+import { deleteCampaign } from "@/actions/campaigns";
+import { Button, Table, message } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -15,7 +16,18 @@ export default function CampaignsTable({
 }: Props) {
   const router = useRouter();
   const [loading = false, setLoading] = React.useState<boolean>(false);
-
+  const onDelete = async (id: string) => {
+    try {
+      setLoading(true);
+      const result = await deleteCampaign(id);
+      if (result.error) throw new Error(result.error);
+      message.success("Кампанію успішно видалено!");
+    } catch (error: any) {
+      message.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
   const columns = [
     {
       title: "Назва",
@@ -85,7 +97,7 @@ export default function CampaignsTable({
             />
             <Button
               size="small"
-              // onClick={() => onDelete(record._id)}
+              onClick={() => onDelete(record._id)}
               icon={<i className="ri-delete-bin-line"></i>}
             />
           </div>

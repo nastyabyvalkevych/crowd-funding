@@ -32,7 +32,21 @@ export const editCampaign = async (reqBody: any) => {
     );
     revalidatePath(`/admin/campaigns/edit-campaign/${reqBody._id}`);
     return {
-      message: "Кампанію успішно оновлена!",
+      message: "Кампанію успішно оновлено!",
+    };
+  } catch (error: any) {
+    return {
+      error: error.message,
+    };
+  }
+};
+
+export const deleteCampaign = async (id: string) => {
+  try {
+    await CampaignModel.findByIdAndDelete(id);
+    revalidatePath(`/admin/campaigns`);
+    return {
+      message: "Кампанію успішно видалено!",
     };
   } catch (error: any) {
     return {

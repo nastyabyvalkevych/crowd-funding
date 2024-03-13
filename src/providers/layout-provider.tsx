@@ -11,6 +11,7 @@ import { usePathname } from "next/navigation";
 import { getCurrentUserDataFromMongoDB } from "@/actions/users";
 import { Spin, message } from "antd";
 import NavBar from "@/components/common/NavBar";
+import Block from "@/components/common/Block";
 
 function LayoutProvider({ children }: { children: React.ReactNode }) {
   const [currentUser, setCurrentUser] = React.useState<any>(null);
@@ -47,8 +48,12 @@ function LayoutProvider({ children }: { children: React.ReactNode }) {
     const isAdminRoute = pathname.includes("/admin");
     if (isAdminRoute && !currentUser)
       return (
-        <div className="flex justify-center items-center mt-20">
-          <Spin />
+        <div className="relative mt-32 md:mt-8 ">
+          <div className="flex justify-center items-center px-4 mt-10">
+            <div className="max-w-2xl mx-auto">
+              <Spin />
+            </div>
+          </div>
         </div>
       );
 

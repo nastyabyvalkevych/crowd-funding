@@ -1,4 +1,5 @@
 "use client";
+import { uploadImagesToFirebaseAndReturnUrls } from "@/helpers/uploads";
 import {
   Button,
   DatePicker,
@@ -64,20 +65,36 @@ interface Props {
 
 function CampaignForm({ initialData, isEditForm = false }: Props) {
   const [loading = false, setLoading] = React.useState<boolean>(false);
-  const [isActive, setIsActive] = React.useState(
-    initialData?.isActive || true
+  const [isActive, setIsActive] = React.useState(initialData?.isActive || true);
+  const [newlySelectedFiles = [], setNewlySelectedFiles] = React.useState<
+    any[]
+  >([]);
+  const [existingImages, setExistingImages] = React.useState<any[]>(
+    initialData?.images || []
   );
   const [showDonarsInCampaign, setShowDonarsInCampaign] = React.useState(
     initialData?.showDonarsInCampaign || true
   );
-  
+
   const router = useRouter();
   const onFinish = async (values: any) => {
-    values.isActive = isActive;
-    values.showDonarsInCampaign = showDonarsInCampaign;
-    // setLoading(true);
-    console.log(values);
-    
+    try {
+      setLoading(true);
+      values.isActive = isActive;
+      values.showDonarsInCampaign = showDonarsInCampaign;
+
+      const newlyUploadedImages = await uploadImagesToFirebaseAndReturnUrls(
+        newlySelectedFiles
+      );
+
+      values.images = [...existingImages, ...newlyUploadedImages];
+
+      console.log(values);
+    } catch (error: any) {
+      message.error(error.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -182,6 +199,17 @@ function CampaignForm({ initialData, isEditForm = false }: Props) {
             />
           </div>
         </div>
+        <Upload
+          className="mt-5"
+          beforeUpload={(file) => {
+            setNewlySelectedFiles((prev) => [...prev, file]);
+            return false;
+          }}
+          listType="picture-card"
+          multiple
+        >
+          Завантажити зображення
+        </Upload>
 
         <div className="flex justify-end gap-5 mt-5">
           <Button onClick={() => router.push("/admin/campaigns")}>

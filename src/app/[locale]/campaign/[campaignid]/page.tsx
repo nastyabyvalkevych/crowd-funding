@@ -1,3 +1,4 @@
+import DonationCard from "@/components/cards/DonationCard";
 import Block from "@/components/common/Block";
 import LinkButton from "@/components/common/LinkButton";
 import { connectDB } from "@/db/config";
@@ -44,6 +45,7 @@ const LocalizationComponent = ({
 async function SingleCampaignPage({ params }: SingleCampaignPageProps) {
   const campaign: any = await CampaignModel.findById(params.campaignid);
 
+
   return (
     campaign && (
       <Block>
@@ -70,6 +72,12 @@ async function SingleCampaignPage({ params }: SingleCampaignPageProps) {
               collectedAmount={campaign.collectedAmount}
             />
             <p className="text-sm text-gray-600">{campaign.description}</p>
+          </div>
+          <div className="col-span-1">
+            <DonationCard
+             
+              campaign={JSON.parse(JSON.stringify(campaign))}
+            />
           </div>
         </div>
       </Block>

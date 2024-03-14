@@ -63,6 +63,10 @@
     "startDate": "Start date",
     "endDate": "End date",
     "targetAmount": "Target amount",
-    "collectedAmount": "Collected amount"
+    "collectedAmount": "Collected amount",
+    "raised": "raised of",
+    "donate": "Donate",
+    "amount": "Amount",
+    "message": "Message"
   }
 }

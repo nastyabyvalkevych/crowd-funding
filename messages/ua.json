@@ -63,6 +63,10 @@
     "startDate": "Дата початку",
     "endDate": "Дата закінчення",
     "targetAmount": "Цільова сума",
-    "collectedAmount": "Зібрана сума"
+    "collectedAmount": "Зібрана сума",
+    "raised": "зібрано з",
+    "donate": "Задонатити",
+    "amount": "Сума",
+    "message": "Повідомлення"
   }
 }

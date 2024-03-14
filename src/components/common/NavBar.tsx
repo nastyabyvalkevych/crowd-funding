@@ -27,7 +27,8 @@ function NavBar({ currentUser, menuToShow }: any) {
     setMenu(!menu);
   };
 
-  const handleLinkClick = (index: number) => {
+  const handleLinkClick = (index: number, href: string) => {
+    router.push(href);
     setActiveLink(index);
   };
 
@@ -54,21 +55,20 @@ function NavBar({ currentUser, menuToShow }: any) {
           </div>
           <div className="flex gap-[20px] xl:gap-[50px] text-[16px] items-center select-none">
             {navLinks.map((link, index) => (
-              <Link href={`/${localActive}${link.href}`} key={link.key}>
-                <p
-                  onClick={() => handleLinkClick(index)}
-                  className={`transition-all duration-150 cursor-pointer flex items-center gap-2 font-[500] ${
-                    activeLink === index
-                      ? "text-[#1A8FE3] font-bold"
-                      : "text-dark"
-                  }`}
-                >
-                  {link.label}{" "}
-                  {activeLink === index && (
-                    <span className="w-2 h-2 bg-[#1A8FE3] rounded-full"></span>
-                  )}
-                </p>
-              </Link>
+              <p
+                key={link.key}
+                onClick={() => handleLinkClick(index, link.href)}
+                className={`transition-all duration-150 cursor-pointer flex items-center gap-2 font-[500] ${
+                  activeLink === index
+                    ? "text-[#1A8FE3] font-bold"
+                    : "text-dark"
+                }`}
+              >
+                {link.label}{" "}
+                {activeLink === index && (
+                  <span className="w-2 h-2 bg-[#1A8FE3] rounded-full"></span>
+                )}
+              </p>
             ))}
             {!isAdminRoute && <LocalSwitcher />}
           </div>
@@ -99,7 +99,7 @@ function NavBar({ currentUser, menuToShow }: any) {
                 />
               </Link>
             )}
-            <UserButton afterSignOutUrl={`/${localActive}`} />
+            <UserButton afterSignOutUrl={"/"} />
           </div>
         </div>
       </div>
@@ -139,28 +139,27 @@ function NavBar({ currentUser, menuToShow }: any) {
           <div className="my-8 select-none animate-in slide-in-from-right">
             <div className="flex flex-col gap-8 mt-8 mx-4 items-center">
               {navLinks.map((i, index) => (
-                <Link href={`/${localActive}${i.href}`} key={i.key}>
-                  <p
-                    onClick={() => {
-                      handleLinkClick(index);
-                      handleLinkClickMobile();
-                    }}
-                    className={`transition-all duration-150 cursor-pointer flex items-center gap-2 font-[500] ${
-                      activeLink === index
-                        ? "text-[#1A8FE3] font-bold"
-                        : "text-dark"
-                    }`}
-                  >
-                    {i.label}{" "}
-                    {activeLink === index && (
-                      <span className="w-2 h-2 bg-[#1A8FE3] rounded-full"></span>
-                    )}
-                  </p>
-                </Link>
+                <p
+                  key={i.key}
+                  onClick={() => {
+                    handleLinkClick(index, i.href);
+                    handleLinkClickMobile();
+                  }}
+                  className={`transition-all duration-150 cursor-pointer flex items-center gap-2 font-[500] ${
+                    activeLink === index
+                      ? "text-[#1A8FE3] font-bold"
+                      : "text-dark"
+                  }`}
+                >
+                  {i.label}{" "}
+                  {activeLink === index && (
+                    <span className="w-2 h-2 bg-[#1A8FE3] rounded-full"></span>
+                  )}
+                </p>
               ))}
               {!isAdminRoute && <LocalSwitcher />}
               <div className="flex flex-col gap-[16px] select-none items-center">
-                <UserButton afterSignOutUrl={`/${localActive}`} />
+                <UserButton afterSignOutUrl={`/`} />
 
                 {isSignedIn ? (
                   <div className="bg-white rounded py-2 px-3 flex items-center gap-5">

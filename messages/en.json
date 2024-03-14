@@ -57,5 +57,12 @@
       "title": "Save the world",
       "description": "Donate today to be a part of positive change in society. <br></br>Your contribution will help us implement projects aimed at supporting and developing various charitable initiatives. <br></br><strong>Be the change</strong> you want to see in the world - join us today."
     }
+  },
+  "Campaign":{
+    "organizer": "Organizer",
+    "startDate": "Start date",
+    "endDate": "End date",
+    "targetAmount": "Target amount",
+    "collectedAmount": "Collected amount"
   }
 }

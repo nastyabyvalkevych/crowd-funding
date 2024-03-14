@@ -4,7 +4,7 @@ import { formats } from "@/lib/formats";
 import { useTranslations } from "next-intl";
 
 export default function Donation() {
-    const t = useTranslations("Donate");
+  const t = useTranslations("Donate");
   return (
     <Block>
       <DonateSection

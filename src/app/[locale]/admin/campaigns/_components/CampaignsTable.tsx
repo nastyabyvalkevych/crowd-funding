@@ -86,7 +86,7 @@ export default function CampaignsTable({
               // }}
               size="small"
             >
-              Report
+              Доповідь
             </Button>
             <Button
               onClick={() =>

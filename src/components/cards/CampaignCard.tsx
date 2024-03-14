@@ -11,8 +11,9 @@ function CampaignCard({ campaign }: CampaignCardProps) {
   const router = useRouter();
   const mainImage = campaign.images[0];
   const collectedPercentage = Math.round(
-    (campaign.collectedAmount / campaign.targetAmount) * 100
+    (campaign.collectedAmount / campaign.targetAmount) * 100,
   );
+
   return (
     <div
       className="border rounded-xl border-gray-300 border-solid hover:border-[#1A8FE3] cursor-pointer"

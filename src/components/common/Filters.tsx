@@ -4,16 +4,14 @@ import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { categories } from "@/app/[locale]/admin/campaigns/_components/CampaignForm";
 
-
-
 function Filters() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [category = "", setCategory] = React.useState<string>(
-    searchParams.get("category") || ""
+    searchParams.get("category") || "",
   );
   const [organizer = "", setOrganizer] = React.useState<string>(
-    searchParams.get("organizer") || ""
+    searchParams.get("organizer") || "",
   );
   return (
     <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-5 my-5 items-end">

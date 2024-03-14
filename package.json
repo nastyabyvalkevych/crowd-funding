@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.9",
+    "@stripe/react-stripe-js": "^2.6.0",
+    "@stripe/stripe-js": "^3.0.8",
     "@studio-freight/lenis": "^1.0.39",
     "antd": "^5.12.1",
     "axios": "^1.6.7",
@@ -29,6 +31,7 @@
     "react-dom": "^18",
     "remixicon": "^4.2.0",
     "sharp": "^0.33.2",
+    "stripe": "^14.20.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7"
   },

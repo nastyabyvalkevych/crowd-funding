@@ -4,15 +4,19 @@ import { message as antdMessage } from "antd";
 import { useTranslations } from "next-intl";
 const { TextArea } = Input;
 import React from "react";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import { getStripeClientSecret } from "@/actions/payments";
 
 interface DonationCardProps {
   campaign: CampaignType;
   donations?: DonationType[];
 }
 
+const stripePromise = loadStripe(process.env.STRIPE_SECRET_KEY!);
 
 function DonationCard({ campaign, donations = [] }: DonationCardProps) {
- 
+  const [clientSecret = "", setClientSecret] = React.useState<string>("");
   const [loading = false, setLoading] = React.useState<boolean>(false);
   const [amount, setAmount] = React.useState<number>();
   const [message, setMessage] = React.useState("");
@@ -20,9 +24,18 @@ function DonationCard({ campaign, donations = [] }: DonationCardProps) {
     (campaign.collectedAmount / campaign.targetAmount) * 100
   );
 
-   const t = useTranslations("Campaign");
-
-
+  const t = useTranslations("Campaign");
+const getClientSecret = async () => {
+  try {
+    setLoading(true);
+    const response = await getStripeClientSecret({ amount });
+    if (response.error) throw new Error(response.error);
+    console.log(response)
+  } catch (error) {
+  } finally {
+    setLoading(false);
+  }
+};
   return (
     <div className="border border-solid rounded-xl border-gray-300 p-5">
       <span className="text-xl text-primary font-semibold">
@@ -35,7 +48,6 @@ function DonationCard({ campaign, donations = [] }: DonationCardProps) {
       <div className="flex flex-col gap-5 mt-5">
         <Input
           placeholder={t("amount")}
-          type="number"
           onChange={(e) => setAmount(Number(e.target.value))}
           value={amount}
         />
@@ -47,7 +59,7 @@ function DonationCard({ campaign, donations = [] }: DonationCardProps) {
           value={message}
         />
 
-        <Button type="default" block disabled={!amount} loading={loading}>
+        <Button type="default" block disabled={!amount} loading={loading} onClick={getClientSecret}>
           {t("donate")}
         </Button>
       </div>

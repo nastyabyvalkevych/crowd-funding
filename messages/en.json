@@ -67,6 +67,11 @@
     "raised": "raised of",
     "donate": "Donate",
     "amount": "Amount",
-    "message": "Message"
+    "message": "Message",
+    "completeDonation": "Complete your donation payment",
+    "cancel": "Cancel",
+    "pay": "Pay",
+    "recentDonation": "Recent Donations",
+    "noDonation": "No donation yet. Be the first to donate to this campaign."
   }
 }

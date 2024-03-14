@@ -20,7 +20,7 @@ function CampaignCard({ campaign }: CampaignCardProps) {
       onClick={() => router.push(`/campaign/${campaign._id}`)}
     >
       <div className="p-3">
-        <img src={mainImage} className="w-full object-cover rounded-lg" />
+        <img src={mainImage} className="h-80 w-full object-cover rounded-lg" />
       </div>
       <div className="p-3 flex flex-col">
         <h1 className="text-sm font-semibold text-primary">{campaign.name}</h1>

@@ -50,7 +50,7 @@ async function SingleCampaignPage({ params }: SingleCampaignPageProps) {
     campaign && (
       <Block>
         <h1 className="text-2xl font-bold text-gray-600 mb-3">
-          {campaign.name}
+          {campaign.name} 
         </h1>
 
         <div className="grid md:grid-cols-3 gap-7 grid-cols-1">
@@ -60,7 +60,7 @@ async function SingleCampaignPage({ params }: SingleCampaignPageProps) {
                 <img
                   key={index}
                   src={image}
-                  className="h-60 object-cover rounded"
+                  className="h-60 object-cover rounded "
                 />
               ))}
             </div>

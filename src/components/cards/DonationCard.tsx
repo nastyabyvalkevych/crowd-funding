@@ -49,10 +49,11 @@ const t = useTranslations("Campaign");
   };
 
   const donationCard = (donation: DonationType) => {
+    const user = donation?.user?.userName ? donation.user.userName : "anonim";
     return (
-      <div className="p-2 rounded-sm  bg-gray-100 flex flex-col">
+      <div className="p-2 rounded-lg  bg-gray-100 flex flex-col">
         <span className="text-gray-600 text-sm font-semibold">
-          $ {donation.amount} by {donation.user.userName}
+          {user} - {donation.amount} грн
         </span>
         <span className="text-gray-500 text-sm">{donation.message}</span>
       </div>
@@ -77,7 +78,7 @@ const t = useTranslations("Campaign");
   };
 
   return (
-    <div className="border border-solid rounded border-gray-300 p-5">
+    <div className="border border-solid rounded-xl border-gray-300 p-5">
       <span className="text-xl text-primary font-semibold">
         {campaign.collectedAmount} грн {t("raised")} {campaign.targetAmount} грн
       </span>
@@ -98,7 +99,7 @@ const t = useTranslations("Campaign");
                 getAllDonations();
               }}
             >
-              View all{" "}
+              {t("viewAllDonations")}
             </span>
           )}
         </>
@@ -165,7 +166,7 @@ const t = useTranslations("Campaign");
           }}
           width={600}
           footer={null}
-          title="All donations for this campaign"
+          title={t("modalTitle")}
         >
           <div className="flex flex-col gap-5 my-5">
             {allDonations.map((donation) => donationCard(donation))}

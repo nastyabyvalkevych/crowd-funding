@@ -72,6 +72,8 @@
     "cancel": "Cancel",
     "pay": "Pay",
     "recentDonation": "Recent Donations",
-    "noDonation": "No donation yet. Be the first to donate to this campaign."
+    "noDonation": "No donation yet. Be the first to donate to this campaign.",
+    "viewAllDonations": "View all",
+    "modalTitle": "All donations for this campaign"
   }
 }

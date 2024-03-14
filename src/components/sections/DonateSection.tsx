@@ -18,6 +18,9 @@ export default async function DonateSection({
   const campaigns: CampaignType[] = (await CampaignModel.find({}).sort({
     createdAt: -1,
   })) as any;
+
+
+  
   return (
     <div>
       <Header title={title} subtitle={subtitle} />

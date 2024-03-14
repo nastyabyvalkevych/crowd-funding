@@ -16,12 +16,12 @@ interface DonationCardProps {
 }
 
 const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!,
 );
 
 function DonationCard({ campaign, donations = [] }: DonationCardProps) {
   const [allDonations = [], setAllDonations] = React.useState<DonationType[]>(
-    []
+    [],
   );
   const [showAllDonationsModal = false, setShowAllDonationsModal] =
     React.useState<boolean>(false);
@@ -32,9 +32,9 @@ function DonationCard({ campaign, donations = [] }: DonationCardProps) {
   const [amount, setAmount] = React.useState<number>();
   const [message, setMessage] = React.useState("");
   const collectedPercentage = Math.round(
-    (campaign.collectedAmount / campaign.targetAmount) * 100
+    (campaign.collectedAmount / campaign.targetAmount) * 100,
   );
-const t = useTranslations("Campaign");
+  const t = useTranslations("Campaign");
   const getClientSecret = async () => {
     try {
       setLoading(true);

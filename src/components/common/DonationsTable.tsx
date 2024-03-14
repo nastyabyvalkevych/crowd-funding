@@ -55,7 +55,7 @@ function DonationsTable({
       dataIndex: "user",
       key: "user",
       render: (user: UserType) => {
-        return <span>{user?.userName ? user.userName:'anonim'}</span>;
+        return <span>{user?.userName ? user.userName : "anonim"}</span>;
       },
     });
   }

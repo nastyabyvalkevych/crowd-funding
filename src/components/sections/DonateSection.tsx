@@ -19,8 +19,6 @@ export default async function DonateSection({
     createdAt: -1,
   })) as any;
 
-
-  
   return (
     <div>
       <Header title={title} subtitle={subtitle} />

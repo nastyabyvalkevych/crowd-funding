@@ -46,12 +46,12 @@ const LocalizationComponent = ({
 async function SingleCampaignPage({ params }: SingleCampaignPageProps) {
   const campaign: any = await CampaignModel.findById(params.campaignid);
 
- const recent5Donations = await DonationModal.find({
-   campaign: params.campaignid,
- })
-   .populate("user", "userName")
-   .sort({ createdAt: -1 })
-   .limit(5);
+  const recent5Donations = await DonationModal.find({
+    campaign: params.campaignid,
+  })
+    .populate("user", "userName")
+    .sort({ createdAt: -1 })
+    .limit(5);
 
   return (
     campaign && (

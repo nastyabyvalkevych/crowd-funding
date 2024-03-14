@@ -66,7 +66,6 @@ function PaymentModal({ campaign, amount, messageText }: PaymentModalProps) {
     <form onSubmit={onSubmit}>
       <PaymentElement />
 
-      //TODO USER AND ADDRESS INFO
       {/* <AddressElement
         options={{
           allowedCountries: ["UA"],

@@ -13,8 +13,8 @@ import { useSession } from "@clerk/clerk-react";
 import logo from "../../../public/images/Logo.png";
 import Image from "next/image";
 import { UserButton } from "@clerk/nextjs";
-import { Button, Dropdown, Spin, message } from "antd";
-import { useRouter } from "next/navigation";
+import { Button, Dropdown } from "antd";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 
 function NavBar({ currentUser, menuToShow }: any) {
@@ -27,7 +27,8 @@ function NavBar({ currentUser, menuToShow }: any) {
     setMenu(!menu);
   };
 
-  const handleLinkClick = (index: number) => {
+  const handleLinkClick = (index: number, href: string) => {
+    router.push(href);
     setActiveLink(index);
   };
 
@@ -41,7 +42,9 @@ function NavBar({ currentUser, menuToShow }: any) {
   const navLinks = localActive === "en" ? NAV_LINKS_EN : NAV_LINKS_UA;
 
   const { isSignedIn } = useSession();
+  const pathname = usePathname();
 
+  const isAdminRoute = pathname.includes("/admin");
   return (
     <div className="md:sticky md:top-0   md:shadow-none z-20 ">
       {/* DESKTOP */}
@@ -52,23 +55,22 @@ function NavBar({ currentUser, menuToShow }: any) {
           </div>
           <div className="flex gap-[20px] xl:gap-[50px] text-[16px] items-center select-none">
             {navLinks.map((link, index) => (
-              <Link href={`/${localActive}${link.href}`} key={link.key}>
-                <p
-                  onClick={() => handleLinkClick(index)}
-                  className={`transition-all duration-150 cursor-pointer flex items-center gap-2 font-[500] ${
-                    activeLink === index
-                      ? "text-[#1A8FE3] font-bold"
-                      : "text-dark"
-                  }`}
-                >
-                  {link.label}{" "}
-                  {activeLink === index && (
-                    <span className="w-2 h-2 bg-[#1A8FE3] rounded-full"></span>
-                  )}
-                </p>
-              </Link>
+              <p
+                key={link.key}
+                onClick={() => handleLinkClick(index, link.href)}
+                className={`transition-all duration-150 cursor-pointer flex items-center gap-2 font-[500] ${
+                  activeLink === index
+                    ? "text-[#1A8FE3] font-bold"
+                    : "text-dark"
+                }`}
+              >
+                {link.label}{" "}
+                {activeLink === index && (
+                  <span className="w-2 h-2 bg-[#1A8FE3] rounded-full"></span>
+                )}
+              </p>
             ))}
-            <LocalSwitcher />
+            {!isAdminRoute && <LocalSwitcher />}
           </div>
           <div className="flex items-center gap-[32px] select-none">
             {isSignedIn ? (
@@ -97,7 +99,7 @@ function NavBar({ currentUser, menuToShow }: any) {
                 />
               </Link>
             )}
-            <UserButton afterSignOutUrl={`/${localActive}`} />
+            <UserButton afterSignOutUrl={"/"} />
           </div>
         </div>
       </div>
@@ -109,7 +111,13 @@ function NavBar({ currentUser, menuToShow }: any) {
       >
         <div className="flex justify-between mx-[10px]">
           <div className="flex gap-[50px] text-[16px] items-center select-none">
-            <img src="/images/logo.png" alt="logo" className="w-[6rem]" />
+            <Image
+              src={logo}
+              alt="logo"
+              width={130}
+              height={100}
+              className="w-[6rem]"
+            />
           </div>
           <div className="flex items-center gap-[40px]">
             {menu ? (
@@ -131,28 +139,27 @@ function NavBar({ currentUser, menuToShow }: any) {
           <div className="my-8 select-none animate-in slide-in-from-right">
             <div className="flex flex-col gap-8 mt-8 mx-4 items-center">
               {navLinks.map((i, index) => (
-                <Link href={`/${localActive}${i.href}`} key={i.key}>
-                  <p
-                    onClick={() => {
-                      handleLinkClick(index);
-                      handleLinkClickMobile();
-                    }}
-                    className={`transition-all duration-150 cursor-pointer flex items-center gap-2 font-[500] ${
-                      activeLink === index
-                        ? "text-[#1A8FE3] font-bold"
-                        : "text-dark"
-                    }`}
-                  >
-                    {i.label}{" "}
-                    {activeLink === index && (
-                      <span className="w-2 h-2 bg-[#1A8FE3] rounded-full"></span>
-                    )}
-                  </p>
-                </Link>
+                <p
+                  key={i.key}
+                  onClick={() => {
+                    handleLinkClick(index, i.href);
+                    handleLinkClickMobile();
+                  }}
+                  className={`transition-all duration-150 cursor-pointer flex items-center gap-2 font-[500] ${
+                    activeLink === index
+                      ? "text-[#1A8FE3] font-bold"
+                      : "text-dark"
+                  }`}
+                >
+                  {i.label}{" "}
+                  {activeLink === index && (
+                    <span className="w-2 h-2 bg-[#1A8FE3] rounded-full"></span>
+                  )}
+                </p>
               ))}
-              <LocalSwitcher />
+              {!isAdminRoute && <LocalSwitcher />}
               <div className="flex flex-col gap-[16px] select-none items-center">
-                <UserButton afterSignOutUrl={`/${localActive}`} />
+                <UserButton afterSignOutUrl={`/`} />
 
                 {isSignedIn ? (
                   <div className="bg-white rounded py-2 px-3 flex items-center gap-5">

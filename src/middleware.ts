@@ -8,6 +8,9 @@ const intlMiddleware = createMiddleware({
   defaultLocale: "ua",
 });
 
+const isPublicRoute = (req: any) =>
+  !req.url.includes("/admin") && !req.url.includes("/profile");
+
 export default authMiddleware({
   beforeAuth: (req) => {
     // Execute next-intl middleware before Clerk's auth middleware
@@ -15,20 +18,7 @@ export default authMiddleware({
   },
 
   // Ensure that locale specific sign-in pages are public
-  publicRoutes: [
-    "/",
-    "/ua",
-    "/ua/about",
-    "/ua/blog",
-    "/ua/contact",
-    "/ua/donation",
-    "/en",
-    "/en/about",
-    "/en/blog",
-    "/en/contact",
-    "/en/donation",
-    "/:locale/sign-in",
-  ],
+  publicRoutes: (req) => isPublicRoute(req),
 });
 
 export const config = {

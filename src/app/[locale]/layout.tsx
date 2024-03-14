@@ -3,7 +3,7 @@ import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import NavBar from "@/components/common/NavBar";
+import "remixicon/fonts/remixicon.css";
 import FooterSection from "@/components/common/Footer";
 import LayoutProvider from "@/providers/layout-provider";
 

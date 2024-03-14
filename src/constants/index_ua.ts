@@ -2,7 +2,7 @@
 export const NAV_LINKS_UA = [
   { href: "/", key: "home", label: "Головна" },
   { href: "/about", key: "about", label: "Про нас" },
-  { href: "/donation", key: "donation", label: "Донати" },
+  { href: "/campaign", key: "campaign", label: "Збори" },
   { href: "/blog", key: "blog ", label: "Блог " },
   { href: "/contact", key: "contact", label: "Контакти" },
 ];
@@ -28,7 +28,7 @@ export const ADMIN_MENU_UA = [
     url: "/admin/donations",
   },
   {
-    name: "Компанії",
+    name: "Кaмпанії",
     url: "/admin/campaigns",
   },
   {

@@ -30,10 +30,10 @@ export default function CampaignsTable({
     }
   };
 
-    const [selectedCampaign = null, setSelectedCampaign] =
-      React.useState<CampaignType | null>(null);
-    const [showReportModal = false, setShowReportModal] =
-      React.useState<boolean>(false);
+  const [selectedCampaign = null, setSelectedCampaign] =
+    React.useState<CampaignType | null>(null);
+  const [showReportModal = false, setShowReportModal] =
+    React.useState<boolean>(false);
 
   const columns = [
     {

@@ -22,7 +22,7 @@ function DonationsTable({
       dataIndex: "campaign",
       key: "campaign",
       render: (campaign: CampaignType) => {
-        return <span>{campaign?.name ? campaign?.name:'Не існує'}</span>;
+        return <span>{campaign?.name ? campaign?.name : "Не існує"}</span>;
       },
     },
     {

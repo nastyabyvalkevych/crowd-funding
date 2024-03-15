@@ -72,9 +72,7 @@ async function DashboardPage() {
       </div>
 
       <div className="mt-10">
-        <h1 className="text-xl font-semibold text-gray-700">
-          Останні донати
-        </h1>
+        <h1 className="text-xl font-semibold text-gray-700">Останні донати</h1>
         <DonationsTable
           donations={JSON.parse(JSON.stringify(recentDonations))}
           pagination={false}

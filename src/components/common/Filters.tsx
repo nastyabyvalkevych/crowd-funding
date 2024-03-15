@@ -14,7 +14,7 @@ function Filters() {
   const [organizer = "", setOrganizer] = React.useState<string>(
     searchParams.get("organizer") || "",
   );
-  const t=useTranslations("Filter")
+  const t = useTranslations("Filter");
   return (
     <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-5 my-5 items-end">
       <div className="flex flex-col">
@@ -50,7 +50,7 @@ function Filters() {
         <Button
           onClick={() => {
             router.push(
-              `campaign/?category=${category}&organizer=${organizer}`
+              `campaign/?category=${category}&organizer=${organizer}`,
             );
           }}
           block

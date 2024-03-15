@@ -16,7 +16,7 @@ export default async function DonateSection({
   title: string;
   subtitle: string;
   desc: any;
-  searchParams:any
+  searchParams: any;
 }) {
   let filters: any = {
     isActive: true,
@@ -39,7 +39,7 @@ export default async function DonateSection({
     <div>
       <Header title={title} subtitle={subtitle} />
       <p className="text-center text-customGray my-8">{desc}</p>
-      <Filters/>
+      <Filters />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mx-10 mt-8">
         {campaigns.map((campaign) => (
           <CampaignCard

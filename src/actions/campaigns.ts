@@ -57,8 +57,6 @@ export const deleteCampaign = async (id: string) => {
   }
 };
 
-
-
 export const getCampaignReportsById = async (id: string) => {
   try {
     const campaignIdInObjectFormat = new mongoose.Types.ObjectId(id);

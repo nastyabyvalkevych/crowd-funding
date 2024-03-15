@@ -11,6 +11,12 @@
       "signUp": "Sign up"
     }
   },
+  "Filter":{
+"category":"Select Category",
+"organizer":"Search by Organizer",
+"reset":"Reset",
+"filter":"Filter"
+  },
   "Home": {
     "HeroSection": {
       "title": "<strong>Donating</strong> is about making a Difference",
@@ -67,6 +73,13 @@
     "raised": "raised of",
     "donate": "Donate",
     "amount": "Amount",
-    "message": "Message"
+    "message": "Message",
+    "completeDonation": "Complete your donation payment",
+    "cancel": "Cancel",
+    "pay": "Pay",
+    "recentDonation": "Recent Donations",
+    "noDonation": "No donation yet. Be the first to donate to this campaign.",
+    "viewAllDonations": "View all",
+    "modalTitle": "All donations for this campaign"
   }
 }

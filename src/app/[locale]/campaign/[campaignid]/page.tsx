@@ -3,6 +3,7 @@ import Block from "@/components/common/Block";
 import LinkButton from "@/components/common/LinkButton";
 import { connectDB } from "@/db/config";
 import CampaignModel from "@/models/campaign";
+import DonationModal from "@/models/donation";
 import { useTranslations } from "next-intl";
 import React from "react";
 
@@ -45,6 +46,12 @@ const LocalizationComponent = ({
 async function SingleCampaignPage({ params }: SingleCampaignPageProps) {
   const campaign: any = await CampaignModel.findById(params.campaignid);
 
+  const recent5Donations = await DonationModal.find({
+    campaign: params.campaignid,
+  })
+    .populate("user", "userName")
+    .sort({ createdAt: -1 })
+    .limit(5);
 
   return (
     campaign && (
@@ -60,7 +67,7 @@ async function SingleCampaignPage({ params }: SingleCampaignPageProps) {
                 <img
                   key={index}
                   src={image}
-                  className="h-60 object-cover rounded"
+                  className="h-60 object-cover rounded "
                 />
               ))}
             </div>
@@ -75,7 +82,7 @@ async function SingleCampaignPage({ params }: SingleCampaignPageProps) {
           </div>
           <div className="col-span-1">
             <DonationCard
-             
+              donations={JSON.parse(JSON.stringify(recent5Donations))}
               campaign={JSON.parse(JSON.stringify(campaign))}
             />
           </div>

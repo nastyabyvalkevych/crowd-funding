@@ -3,6 +3,7 @@ import { Select, Input, Button } from "antd";
 import React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { categories } from "@/app/[locale]/admin/campaigns/_components/CampaignForm";
+import { useTranslations } from "next-intl";
 
 function Filters() {
   const searchParams = useSearchParams();
@@ -13,11 +14,12 @@ function Filters() {
   const [organizer = "", setOrganizer] = React.useState<string>(
     searchParams.get("organizer") || "",
   );
+  const t = useTranslations("Filter");
   return (
     <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-5 my-5 items-end">
       <div className="flex flex-col">
         <span className="text-sm font-semibold text-gray-500">
-          Select Category
+          {t("category")}
         </span>
         <Select
           value={category}
@@ -27,7 +29,7 @@ function Filters() {
       </div>
       <div className="flex flex-col">
         <span className="text-sm font-semibold text-gray-500">
-          Search by Organizer
+          {t("organizer")}
         </span>
         <Input
           value={organizer}
@@ -37,22 +39,23 @@ function Filters() {
       <div className="flex gap-5">
         <Button
           onClick={() => {
-            router.push(`/`);
+            router.push(`/campaign`);
             setCategory("");
             setOrganizer("");
           }}
           block
         >
-          Reset
+          {t("reset")}
         </Button>
         <Button
-          type="primary"
           onClick={() => {
-            router.push(`/?category=${category}&organizer=${organizer}`);
+            router.push(
+              `campaign/?category=${category}&organizer=${organizer}`,
+            );
           }}
           block
         >
-          Filter
+          {t("filter")}
         </Button>
       </div>
     </div>

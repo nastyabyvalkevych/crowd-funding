@@ -1,5 +1,5 @@
 "use client";
-import { getStripeClientSecret } from "@/actions/payments";
+import { getStripeClientSecret } from "@/api/payments";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { Button, Input, Modal, Progress } from "antd";
@@ -7,7 +7,7 @@ import { message as antdMessage } from "antd";
 const { TextArea } = Input;
 import React from "react";
 import PaymentModal from "../common/PaymentModal";
-import { getDonationsByCampaignId } from "@/actions/donations";
+import { getDonationsByCampaignId } from "@/api/donations";
 import { useTranslations } from "next-intl";
 
 interface DonationCardProps {
@@ -16,12 +16,12 @@ interface DonationCardProps {
 }
 
 const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!,
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 );
 
 function DonationCard({ campaign, donations = [] }: DonationCardProps) {
   const [allDonations = [], setAllDonations] = React.useState<DonationType[]>(
-    [],
+    []
   );
   const [showAllDonationsModal = false, setShowAllDonationsModal] =
     React.useState<boolean>(false);
@@ -32,7 +32,7 @@ function DonationCard({ campaign, donations = [] }: DonationCardProps) {
   const [amount, setAmount] = React.useState<number>();
   const [message, setMessage] = React.useState("");
   const collectedPercentage = Math.round(
-    (campaign.collectedAmount / campaign.targetAmount) * 100,
+    (campaign.collectedAmount / campaign.targetAmount) * 100
   );
   const t = useTranslations("Campaign");
   const getClientSecret = async () => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { deleteCampaign } from "@/actions/campaigns";
+import { deleteCampaign } from "@/api/campaigns";
 import { Button, Table, message } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";

@@ -6,7 +6,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { Button, message } from "antd";
 import { useTranslations } from "next-intl";
-import { addNewDonation } from "@/actions/donations";
+import { addNewDonation } from "@/api/donations";
 
 interface PaymentModalProps {
   campaign: CampaignType;

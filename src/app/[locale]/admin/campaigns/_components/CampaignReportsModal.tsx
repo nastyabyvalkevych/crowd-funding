@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 
 import { Modal, Spin, message } from "antd";
-import { getCampaignReportsById } from "@/actions/campaigns";
+import { getCampaignReportsById } from "@/api/campaigns";
 import DashboardCard from "@/components/cards/DashboardCard";
 import DonationsTable from "@/components/common/DonationsTable";
 

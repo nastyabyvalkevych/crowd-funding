@@ -4,6 +4,8 @@ import { connectDB } from "@/db/config";
 import { getCurrentUserDataFromMongoDB } from "./users";
 import { revalidatePath } from "next/cache";
 import CampaignModel from "@/models/campaign";
+import mongoose from "mongoose";
+import DonationModal from "@/models/donation";
 
 connectDB();
 
@@ -47,6 +49,48 @@ export const deleteCampaign = async (id: string) => {
     revalidatePath(`/admin/campaigns`);
     return {
       message: "Кампанію успішно видалено!",
+    };
+  } catch (error: any) {
+    return {
+      error: error.message,
+    };
+  }
+};
+
+
+
+export const getCampaignReportsById = async (id: string) => {
+  try {
+    const campaignIdInObjectFormat = new mongoose.Types.ObjectId(id);
+    let [donationsCount, totalAmountRaised, donations] = await Promise.all([
+      DonationModal.countDocuments({ campaign: id }),
+      DonationModal.aggregate([
+        {
+          $match: {
+            campaign: campaignIdInObjectFormat,
+          },
+        },
+        {
+          $group: {
+            _id: null,
+            totalAmountRaised: {
+              $sum: "$amount",
+            },
+          },
+        },
+      ]),
+      DonationModal.find({ campaign: id })
+        .populate("user")
+        .sort({ createdAt: -1 }),
+    ]);
+
+    totalAmountRaised = totalAmountRaised[0]?.totalAmountRaised || 0;
+    return {
+      data: {
+        donationsCount,
+        totalAmountRaised,
+        donations: JSON.parse(JSON.stringify(donations)),
+      },
     };
   } catch (error: any) {
     return {

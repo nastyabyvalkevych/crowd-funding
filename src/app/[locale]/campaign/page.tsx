@@ -3,7 +3,7 @@ import DonateSection from "@/components/sections/DonateSection";
 import { formats } from "@/lib/formats";
 import { useTranslations } from "next-intl";
 
-export default function Donation() {
+export default function Donation({ searchParams }: { searchParams: any }) {
   const t = useTranslations("Donate");
   return (
     <Block>
@@ -11,6 +11,7 @@ export default function Donation() {
         title={t("Section.miniTitle")}
         subtitle={t("Section.title")}
         desc={t.rich("Section.description", formats)}
+        searchParams={searchParams}
       />
     </Block>
   );

@@ -4,6 +4,7 @@ import { deleteCampaign } from "@/actions/campaigns";
 import { Button, Table, message } from "antd";
 import { useRouter } from "next/navigation";
 import React from "react";
+import CampaignReportsModal from "./CampaignReportsModal";
 
 interface Props {
   campaigns: CampaignType[];
@@ -28,6 +29,12 @@ export default function CampaignsTable({
       setLoading(false);
     }
   };
+
+    const [selectedCampaign = null, setSelectedCampaign] =
+      React.useState<CampaignType | null>(null);
+    const [showReportModal = false, setShowReportModal] =
+      React.useState<boolean>(false);
+
   const columns = [
     {
       title: "Назва",
@@ -80,10 +87,10 @@ export default function CampaignsTable({
         return (
           <div className="flex gap-5">
             <Button
-              // onClick={() => {
-              //   setSelectedCampaign(record);
-              //   setShowReportModal(true);
-              // }}
+              onClick={() => {
+                setSelectedCampaign(record);
+                setShowReportModal(true);
+              }}
               size="small"
             >
               Доповідь
@@ -116,13 +123,13 @@ export default function CampaignsTable({
         scroll={{ x: true }}
       />
 
-      {/* {showReportModal && (
+      {showReportModal && (
         <CampaignReportsModal
           showCampaignReportModal={showReportModal}
           setShowCampaignReportModal={setShowReportModal}
           selectedCampaign={selectedCampaign}
         />
-      )} */}
+      )}
     </div>
   );
 }

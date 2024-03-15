@@ -11,6 +11,12 @@
       "signUp": "Sign up"
     }
   },
+  "Filter":{
+"category":"Select Category",
+"organizer":"Search by Organizer",
+"reset":"Reset",
+"filter":"Filter"
+  },
   "Home": {
     "HeroSection": {
       "title": "<strong>Donating</strong> is about making a Difference",

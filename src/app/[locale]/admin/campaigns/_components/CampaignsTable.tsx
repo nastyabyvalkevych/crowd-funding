@@ -40,7 +40,7 @@ export default function CampaignsTable({
       key: "organizer",
     },
     {
-      title: "Category",
+      title: "Категорія",
       dataIndex: "category",
       key: "category",
       render(category: string) {

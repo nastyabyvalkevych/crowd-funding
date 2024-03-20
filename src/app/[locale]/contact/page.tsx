@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Block from "@/components/common/Block";
 import Header from "@/components/common/Header";
@@ -12,9 +12,9 @@ const { Dragger } = Upload;
 export default function Contact() {
   const [form] = Form.useForm();
 
-  const onFinish = async (values:any) => {
+  const onFinish = async (values: any) => {
     const { name, email, description, attachments } = values;
-    
+
     try {
       const response = await fetch("/api/sendEmail", {
         method: "POST",
@@ -105,9 +105,7 @@ export default function Contact() {
           </Form.Item>
 
           <Form.Item>
-            <Button  htmlType="submit">
-              Відправити
-            </Button>
+            <Button htmlType="submit">Відправити</Button>
           </Form.Item>
         </Form>
       </main>

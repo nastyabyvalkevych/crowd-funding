@@ -48,7 +48,6 @@ export const getDonationsByCampaignId = async (campaignId: string) => {
   }
 };
 
-
 export const getTopDonators = async () => {
   try {
     const topDonators = await DonationModel.aggregate([
@@ -60,7 +59,7 @@ export const getTopDonators = async () => {
       },
       {
         $lookup: {
-          from: "users", 
+          from: "users",
           localField: "_id",
           foreignField: "_id",
           as: "userData",
@@ -72,13 +71,19 @@ export const getTopDonators = async () => {
           totalAmount: 1,
         },
       },
-      { $sort: { totalAmount: -1 } }, 
-      { $limit: 10 }, 
+      { $sort: { totalAmount: -1 } },
+      { $limit: 10 },
     ]);
+
+    // Преобразуйте объекты Mongoose в обычные JavaScript объекты
+    const topDonatorsData = topDonators.map((donator) => ({
+      userName: donator.userName,
+      totalAmount: donator.totalAmount,
+    }));
 
     return {
       success: true,
-      data: topDonators,
+      data: topDonatorsData,
     };
   } catch (error: any) {
     return {
@@ -86,4 +91,3 @@ export const getTopDonators = async () => {
     };
   }
 };
-

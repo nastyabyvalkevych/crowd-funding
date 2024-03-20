@@ -1,58 +1,29 @@
-"use client";
+import React from "react";
+import PostModel from "@/models/post";
+import TopDonators from "../common/TopDonators";
+import PostModal from "../common/PostModal";
+import Post from "../common/Post";
 
-import React, { useEffect, useState } from "react";
-import Header from "../common/Header";
-import { useTranslations } from "next-intl";
-import { formats } from "@/lib/formats";
-import { getTopDonators } from "@/api/donations";
-import { message } from "antd";
-
-interface TopDonators {
-  userName: string;
-  totalAmount: number;
-}
-function BlogSection() {
-  const t = useTranslations("Blog");
-  // Состояние для хранения данных о топ донатерах
-  const [topDonators, setTopDonators] = useState<TopDonators[]>([]);
-
-  // Функция для получения топ донатеров
-  const fetchTopDonators = async () => {
-    try {
-      const response: any = await getTopDonators(); // Замените на свой метод получения топ донатеров
-      if (response.error) throw new Error(response.error);
-      setTopDonators(response.data);
-    } catch (error: any) {
-      message.error(error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchTopDonators();
-  }, []); // Запускаем только при первом рендере
-
-  // Функция для отображения списка топ донатеров
-  const renderTopDonators = () => {
-    return topDonators.map((donator, index) => (
-      <div key={index}>
-        <span>{donator.userName ? donator.userName : "annonym"} - </span>
-        <span>{donator.totalAmount} грн</span>
-      </div>
-    ));
-  };
+async function BlogSection() {
+  const posts: IPost[] = (await PostModel.find().sort({
+    createdAt: -1,
+  })) as any;
   return (
-    <div>
-      <Header title={t("Section.miniTitle")} subtitle={t("Section.title")} />
-      <p className="text-center text-customGray my-8">
-        {t.rich("Section.description", formats)}
-      </p>
-      <div className="border border-solid rounded-xl border-gray-300 p-5">
-        {/* Ваш существующий JSX */}
-
-        {/* Блок с топ донатерами */}
-        <div>
-          <h3>Топ донатеры</h3>
-          {renderTopDonators()}
+    <div className="flex gap-10">
+      <div className="flex-4  ">
+        <div className="sticky top-5">
+          <h1 className="text-5xl text-blue-500 mb-10">Донать та доєднуйся</h1>
+          <TopDonators />
+        </div>
+      </div>
+      <div className="flex-1 ">
+        {/* <h1 className="text-5xl text-blue-500 mb-10">Донать та доєднуйся</h1> */}
+        {/* <h1 className="text-5xl text-blue-500 mb-4">Пости про допомогу</h1> */}
+        <PostModal />
+        <div className="mt-4">
+          {posts.map((post) => {
+            return <Post key={post._id} post={post} />;
+          })}
         </div>
       </div>
     </div>

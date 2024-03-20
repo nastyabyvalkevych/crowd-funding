@@ -22,12 +22,12 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(
       { message: "Email Sent Successfully" },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     return NextResponse.json(
       { message: "Failed to Send Email" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

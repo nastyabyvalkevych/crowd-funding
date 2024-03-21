@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {
   try {
-    const { name, email, description, attachments } = await request.json();
+    const { name, email, description, phone } = await request.json();
 
     const mailOption = {
       // from: "careeros@tryporpra.com",
@@ -11,9 +11,10 @@ export async function POST(request: NextRequest) {
       subject: "Лист Ukranian Aid Fund",
       html: `
         <h2>Допомога потрібна ${name}</h2>
+        <h4>Номер телефону: ${phone}</h4>
         <h4>Ел. пошта: ${email}</h4>
       <h4>Звернення: ${description}</h4>
-      <h4>Файли: ${attachments.file.name}</h4>
+  
         `,
       // attachments: [{ filename: attachments.file.name, path:attachments.file.uid}],
     };

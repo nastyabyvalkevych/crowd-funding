@@ -49,3 +49,4 @@ export const deletePost = async (id: string) => {
     };
   }
 };
+

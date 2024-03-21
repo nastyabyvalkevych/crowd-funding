@@ -38,9 +38,10 @@ export default async function DonateSection({
   return (
     <div>
       <Header title={title} subtitle={subtitle} />
+
       <p className="text-center text-customGray my-8">{desc}</p>
       <Filters />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mx-10 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-10 mt-8">
         {campaigns.map((campaign) => (
           <CampaignCard
             key={campaign._id}

@@ -10,7 +10,7 @@ function AboutUsSection() {
   return (
     <>
       <Header title={t("AboutUs.titile")} subtitle={t("AboutUs.description")} />
-      <div className="flex justify-between items-center gap-8 flex-col md:flex-row mt-8">
+      <div className="flex justify-between items-center gap-8 flex-col md:flex-row mt-8 mb-8">
         <div>
           <img src="/images/team_image.png" alt=" team image" />
         </div>

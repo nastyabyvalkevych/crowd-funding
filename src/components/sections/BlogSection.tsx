@@ -9,7 +9,7 @@ async function BlogSection() {
     createdAt: -1,
   })) as any;
   return (
-    <div className="flex gap-10">
+    <div className="flex flex-col md:flex-row md:space-x-2 px-2 lg:p-0 mb-10 gap-6">
       <div className="flex-4  ">
         <div className="sticky top-5">
           <h1 className="text-5xl text-blue-500 mb-10">Донать та доєднуйся</h1>

@@ -1,3 +1,4 @@
+import Banner from "@/components/common/Banner";
 import Block from "@/components/common/Block";
 import Header from "@/components/common/Header";
 import BlogSection from "@/components/sections/BlogSection";
@@ -13,6 +14,7 @@ export default function About() {
       <p className="text-center text-customGray my-8">
         {t.rich("Section.description", formats)}
       </p>
+      <Banner />
       <BlogSection />
     </Block>
   );

@@ -11,7 +11,6 @@ import { usePathname } from "next/navigation";
 import { getCurrentUserDataFromMongoDB } from "@/api/users";
 import { message } from "antd";
 import NavBar from "@/components/common/NavBar";
-import Block from "@/components/common/Block";
 
 function LayoutProvider({ children }: { children: React.ReactNode }) {
   const [currentUser, setCurrentUser] = React.useState<any>(null);

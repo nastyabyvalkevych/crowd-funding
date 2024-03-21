@@ -1,10 +1,20 @@
-import UserModel from "@/models/user";
-import React from "react";
 
-export default async function Post({ post }: { post: IPost }) {
+import { deletePost } from "@/api/posts";
+import { checkAdminStatus } from "@/api/users";
+import UserModel from "@/models/user";
+import { Button, message } from "antd";
+import React from "react";
+import DeleteButton from "./DeleteButton";
+
+
+
+
+export default async function Post({ post }: { post: PostType }) {
   const user = await UserModel.findById(post.authorId);
   const formattedDate = new Date(post.createdAt).toLocaleDateString();
 
+const adminStatus = await checkAdminStatus();
+ 
   const getColorClass = (category: string) => {
     switch (category) {
       case "Висока":
@@ -31,13 +41,17 @@ export default async function Post({ post }: { post: IPost }) {
           <div className="text-sm font-medium text-gray-700">
             {user?.userName}{" "}
             <span
-              className={`inline-block py-1 px-2 rounded ${getColorClass(
-                post.category,
+              className={`inline-block py-1 px-2 rounded mr-5 ${getColorClass(
+                post.category
               )} text-xs font-medium tracking-widest`}
             >
               {post.category}
             </span>
+            {adminStatus && (
+              <DeleteButton id={post._id}/>
+            )}
           </div>
+
           <div className="text-xs text-gray-500">{formattedDate}</div>
         </div>
       </div>

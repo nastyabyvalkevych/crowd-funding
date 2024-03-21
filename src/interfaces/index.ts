@@ -31,7 +31,7 @@ interface DonationType {
   user: UserType;
   message: string;
 }
-interface IPost {
+interface PostType {
   _id: string;
   title: string;
   desc: string;

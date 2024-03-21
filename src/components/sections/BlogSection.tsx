@@ -5,7 +5,7 @@ import PostModal from "../common/PostModal";
 import Post from "../common/Post";
 
 async function BlogSection() {
-  const posts: IPost[] = (await PostModel.find().sort({
+  const posts: PostType[] = (await PostModel.find().sort({
     createdAt: -1,
   })) as any;
   return (

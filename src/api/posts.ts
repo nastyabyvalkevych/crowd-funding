@@ -36,3 +36,16 @@ export const addNewPost = async (reqBody: any) => {
     };
   }
 };
+
+export const deletePost = async (id: string) => {
+  try {
+    await PostModel.findByIdAndDelete(id);
+    return {
+      message: "Пост успішно видалено!",
+    };
+  } catch (error: any) {
+    return {
+      error: error.message,
+    };
+  }
+};

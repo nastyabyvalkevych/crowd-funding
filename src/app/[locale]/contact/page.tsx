@@ -6,7 +6,27 @@ import { formats } from "@/lib/formats";
 import { message, Button, Input, Form } from "antd";
 import { useTranslations } from "next-intl";
 import React from "react";
-import InputMask from "react-input-mask";
+import InputMask, { Props as InputMaskProps } from "react-input-mask";
+
+interface CustomInputMaskProps {
+  mask: string;
+  maskChar?: string | null;
+  children: (inputProps: any) => React.ReactNode;
+  [key: string]: any; // Additional props
+}
+
+const CustomInputMask: React.FC<CustomInputMaskProps> = ({
+  children,
+  mask,
+  maskChar = null,
+  ...rest
+}: any) => {
+  return (
+    <InputMask mask={mask} maskChar={maskChar} {...rest}>
+      {children}
+    </InputMask>
+  );
+};
 
 const { TextArea } = Input;
 
@@ -70,14 +90,14 @@ export default function Contact() {
                 },
               ]}
             >
-              <InputMask mask="+38(999)999-99-99" maskChar={null}>
+              <CustomInputMask mask="+38(999)999-99-99" maskChar={null}>
                 {(inputProps: any) => (
                   <Input
                     {...inputProps}
                     placeholder={t("Form.phone.placeholder")}
                   />
                 )}
-              </InputMask>
+              </CustomInputMask>
             </Form.Item>
 
             <Form.Item

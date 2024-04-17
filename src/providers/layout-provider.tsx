@@ -8,10 +8,9 @@ import { ADMIN_MENU_UA } from "@/constants/index_ua";
 import { useLocale, useTranslations } from "next-intl";
 
 import { usePathname } from "next/navigation";
-import { getCurrentUserDataFromMongoDB } from "@/actions/users";
+import { getCurrentUserDataFromMongoDB } from "@/api/users";
 import { message } from "antd";
 import NavBar from "@/components/common/NavBar";
-import Block from "@/components/common/Block";
 
 function LayoutProvider({ children }: { children: React.ReactNode }) {
   const [currentUser, setCurrentUser] = React.useState<any>(null);

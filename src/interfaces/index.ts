@@ -31,3 +31,12 @@ interface DonationType {
   user: UserType;
   message: string;
 }
+interface PostType {
+  _id: string;
+  title: string;
+  desc: string;
+  category: string;
+  authorId: UserType;
+  postLikes: string[];
+  createdAt: string;
+}

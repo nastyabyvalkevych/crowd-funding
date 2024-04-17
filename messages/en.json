@@ -11,11 +11,11 @@
       "signUp": "Sign up"
     }
   },
-  "Filter":{
-"category":"Select Category",
-"organizer":"Search by Organizer",
-"reset":"Reset",
-"filter":"Filter"
+  "Filter": {
+    "category": "Select Category",
+    "organizer": "Search by Organizer",
+    "reset": "Reset",
+    "filter": "Filter"
   },
   "Home": {
     "HeroSection": {
@@ -64,7 +64,7 @@
       "description": "Donate today to be a part of positive change in society. <br></br>Your contribution will help us implement projects aimed at supporting and developing various charitable initiatives. <br></br><strong>Be the change</strong> you want to see in the world - join us today."
     }
   },
-  "Campaign":{
+  "Campaign": {
     "organizer": "Organizer",
     "startDate": "Start date",
     "endDate": "End date",
@@ -81,5 +81,34 @@
     "noDonation": "No donation yet. Be the first to donate to this campaign.",
     "viewAllDonations": "View all",
     "modalTitle": "All donations for this campaign"
+  },
+  "Contact": {
+    "miniTitle": "Need help?",
+    "title": "Fill out the form and we will contact you",
+    "description": " The importance of togetherness is to be there in difficult moments.<br></br> If you are in a difficult situation or need help, fill out the form below.<br></br> Our team of will be with you soon to provide support and do everything we can to help you.<br></br> <strong> You are not alone - together we are stronger.</strong> Let's help each other and build a better future together! ",
+    "Form": {
+      "name": {
+        "label": "Full Name",
+        "rules": "Please enter your name!",
+        "placeholder": "Your name"
+      },
+      "phone": {
+        "label": "Phone number",
+        "rules": "Please enter your phone number!",
+        "placeholder": "Your phone number"
+      },
+      "email": {
+        "label": "Email",
+        "rules1": "Please enter your email!",
+        "rules2": "Please enter a valid email!",
+        "placeholder": "Your email"
+      },
+      "description": {
+        "label": "Description of the need for help",
+        "rules": "Please describe your need for help!",
+        "placeholder": "Describe your need for help"
+      },
+      "button": "Submit"
+    }
   }
 }

@@ -1,6 +1,6 @@
 import { connectDB } from "@/db/config";
 import React from "react";
-import { getCurrentUserDataFromMongoDB } from "@/actions/users";
+import { getCurrentUserDataFromMongoDB } from "@/api/users";
 import mongoose from "mongoose";
 import Block from "@/components/common/Block";
 import DonationModal from "@/models/donation";

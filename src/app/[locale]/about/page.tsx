@@ -2,7 +2,6 @@
 
 import { formats } from "@/lib/formats";
 import { useTranslations } from "next-intl";
-
 import Header from "@/components/common/Header";
 import AboutUsSection from "@/components/sections/AboutUsSection";
 import TestimonialSection from "@/components/sections/CommandSection";

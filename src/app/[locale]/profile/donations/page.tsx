@@ -1,4 +1,4 @@
-import { getCurrentUserDataFromMongoDB } from "@/actions/users";
+import { getCurrentUserDataFromMongoDB } from "@/api/users";
 import Block from "@/components/common/Block";
 import DonationsTable from "@/components/common/DonationsTable";
 import PageTitle from "@/components/common/PageTitle";

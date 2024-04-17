@@ -47,3 +47,47 @@ export const getDonationsByCampaignId = async (campaignId: string) => {
     };
   }
 };
+
+export const getTopDonators = async () => {
+  try {
+    const topDonators = await DonationModel.aggregate([
+      {
+        $group: {
+          _id: "$user",
+          totalAmount: { $sum: "$amount" },
+        },
+      },
+      {
+        $lookup: {
+          from: "users",
+          localField: "_id",
+          foreignField: "_id",
+          as: "userData",
+        },
+      },
+      {
+        $project: {
+          userName: { $arrayElemAt: ["$userData.userName", 0] },
+          totalAmount: 1,
+        },
+      },
+      { $sort: { totalAmount: -1 } },
+      { $limit: 10 },
+    ]);
+
+    // Преобразуйте объекты Mongoose в обычные JavaScript объекты
+    const topDonatorsData = topDonators.map((donator) => ({
+      userName: donator.userName,
+      totalAmount: donator.totalAmount,
+    }));
+
+    return {
+      success: true,
+      data: topDonatorsData,
+    };
+  } catch (error: any) {
+    return {
+      error: error.message,
+    };
+  }
+};

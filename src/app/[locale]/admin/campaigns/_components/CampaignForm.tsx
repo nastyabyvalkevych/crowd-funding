@@ -1,5 +1,5 @@
 "use client";
-import { addNewCampaign, editCampaign } from "@/actions/campaigns";
+import { addNewCampaign, editCampaign } from "@/api/campaigns";
 import { uploadImagesToFirebaseAndReturnUrls } from "@/helpers/uploads";
 import { Button, Form, Input, Select, Switch, Upload, message } from "antd";
 import { useRouter } from "next/navigation";

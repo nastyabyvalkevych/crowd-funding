@@ -52,3 +52,20 @@ export const getCurrentUserDataFromMongoDB = async () => {
     };
   }
 };
+
+export const checkAdminStatus = async () => {
+  try {
+    const loggedInUserData = await currentUser();
+    const mongoUser = await UserModel.findOne({
+      clerkUserId: loggedInUserData?.id,
+    });
+
+    // Assuming admin status is stored in a field named isAdmin
+    const isAdmin = mongoUser?.isAdmin || false;
+
+    return isAdmin;
+  } catch (error: any) {
+    console.error("Error checking admin status:", error);
+    return false;
+  }
+};

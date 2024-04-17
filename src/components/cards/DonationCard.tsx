@@ -1,5 +1,5 @@
 "use client";
-import { getStripeClientSecret } from "@/actions/payments";
+import { getStripeClientSecret } from "@/api/payments";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { Button, Input, Modal, Progress } from "antd";
@@ -7,7 +7,7 @@ import { message as antdMessage } from "antd";
 const { TextArea } = Input;
 import React from "react";
 import PaymentModal from "../common/PaymentModal";
-import { getDonationsByCampaignId } from "@/actions/donations";
+import { getDonationsByCampaignId } from "@/api/donations";
 import { useTranslations } from "next-intl";
 
 interface DonationCardProps {

@@ -1,17 +1,31 @@
 import React from "react";
-import Header from "../common/Header";
-import { useTranslations } from "next-intl";
-import { formats } from "@/lib/formats";
+import PostModel from "@/models/post";
+import TopDonators from "../common/TopDonators";
+import PostModal from "../common/PostModal";
+import Post from "../common/Post";
 
-function BlogSection() {
-  const t = useTranslations("Blog");
-
+async function BlogSection() {
+  const posts: PostType[] = (await PostModel.find().sort({
+    createdAt: -1,
+  })) as any;
   return (
-    <div>
-      <Header title={t("Section.miniTitle")} subtitle={t("Section.title")} />
-      <p className="text-center text-customGray my-8">
-        {t.rich("Section.description", formats)}
-      </p>
+    <div className="flex flex-col md:flex-row md:space-x-2 px-2 lg:p-0 mb-10 gap-6">
+      <div className="flex-4  ">
+        <div className="sticky top-5">
+          <h1 className="text-5xl text-blue-500 mb-10">Донать та доєднуйся</h1>
+          <TopDonators />
+        </div>
+      </div>
+      <div className="flex-1 ">
+        {/* <h1 className="text-5xl text-blue-500 mb-10">Донать та доєднуйся</h1> */}
+        {/* <h1 className="text-5xl text-blue-500 mb-4">Пости про допомогу</h1> */}
+        <PostModal />
+        <div className="mt-4">
+          {posts.map((post) => {
+            return <Post key={post._id} post={post} />;
+          })}
+        </div>
+      </div>
     </div>
   );
 }

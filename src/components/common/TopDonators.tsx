@@ -30,7 +30,7 @@ export default function TopDonators() {
     return topDonators.map((donator, index) => (
       <div key={index} className="flex justify-between items-center py-2">
         <span className="flex-1">
-          {donator.userName ? donator.userName : "аноним"}
+          {donator.userName ? donator.userName : "Анонім"}
         </span>
         <span className="ml-2">{donator.totalAmount} грн</span>
       </div>

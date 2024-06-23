@@ -23,7 +23,7 @@ const donationSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true },
+  { timestamps: true }
 );
 
 if (mongoose.models && mongoose.models.donations)

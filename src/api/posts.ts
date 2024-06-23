@@ -28,7 +28,7 @@ export const addNewPost = async (reqBody: any) => {
     await post.save();
 
     return {
-      message: "Пост успешно добавлен!",
+      message: "Пост успішно додан!",
     };
   } catch (error: any) {
     return {

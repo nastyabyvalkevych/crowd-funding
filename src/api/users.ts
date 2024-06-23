@@ -9,13 +9,11 @@ export const handleNewUserRegistration = async () => {
   try {
     const loggedInUserData = await currentUser();
 
-    // check if the user model already exists , if its exits return user data
     const existingUser = await UserModel.findOne({
       clerkUserId: loggedInUserData?.id,
     });
     if (existingUser) return existingUser;
 
-    // create new user
     let userName = loggedInUserData?.username;
     if (!userName) {
       userName = loggedInUserData?.firstName + " " + loggedInUserData?.lastName;
@@ -60,7 +58,6 @@ export const checkAdminStatus = async () => {
       clerkUserId: loggedInUserData?.id,
     });
 
-    // Assuming admin status is stored in a field named isAdmin
     const isAdmin = mongoUser?.isAdmin || false;
 
     return isAdmin;

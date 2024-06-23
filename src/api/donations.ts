@@ -15,7 +15,6 @@ export const addNewDonation = async (reqBody: any) => {
     const newDonation = new DonationModel(reqBody);
     await newDonation.save();
 
-    // update collectedAmount in campaign
     const campaign = (await CampaignModel.findById(reqBody.campaign)) as any;
     campaign.collectedAmount += reqBody.amount;
     await campaign.save();
@@ -75,7 +74,6 @@ export const getTopDonators = async () => {
       { $limit: 10 },
     ]);
 
-    // Преобразуйте объекты Mongoose в обычные JavaScript объекты
     const topDonatorsData = topDonators.map((donator) => ({
       userName: donator.userName,
       totalAmount: donator.totalAmount,

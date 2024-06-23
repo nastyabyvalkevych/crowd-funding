@@ -8,11 +8,12 @@ import { useTranslations } from "next-intl";
 function Filters() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [category = "", setCategory] = React.useState<string>(
-    searchParams.get("category") || "",
+
+  const [category, setCategory] = React.useState<string>(
+    searchParams ? searchParams.get("category") || "" : ""
   );
-  const [organizer = "", setOrganizer] = React.useState<string>(
-    searchParams.get("organizer") || "",
+  const [organizer, setOrganizer] = React.useState<string>(
+    searchParams ? searchParams.get("organizer") || "" : ""
   );
   const t = useTranslations("Filter");
   return (

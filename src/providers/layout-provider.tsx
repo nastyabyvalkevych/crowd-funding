@@ -44,7 +44,7 @@ function LayoutProvider({ children }: { children: React.ReactNode }) {
 
   const getContent = () => {
     // if the route is private , render children only after getting current user
-    const isAdminRoute = pathname.includes("/admin");
+    const isAdminRoute = pathname?.includes("/admin");
     if (isAdminRoute && !currentUser)
       return (
         <div className="flex justify-center items-center h-screen ">

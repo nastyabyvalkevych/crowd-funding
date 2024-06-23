@@ -44,7 +44,7 @@ function NavBar({ currentUser, menuToShow }: any) {
   const { isSignedIn } = useSession();
   const pathname = usePathname();
 
-  const isAdminRoute = pathname.includes("/admin");
+  const isAdminRoute = pathname?.includes("/admin");
   return (
     <div className="md:sticky md:top-0   md:shadow-none z-20 ">
       {/* DESKTOP */}

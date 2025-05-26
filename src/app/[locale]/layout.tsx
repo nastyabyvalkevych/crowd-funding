@@ -74,7 +74,7 @@ export default function RootLayout({
                   let dimensions = JSON.parse(e.data);
                   iframe.width = dimensions.width;
                   iframe.height = dimensions.height;
-                  iframe.contentWindow.postMessage("9a21c6fd-1da7-4338-bd04-1a56b680d077", "https://diploma-sigma-weld.vercel.app/");
+                  iframe.contentWindow.postMessage("70d8e789-397d-4b1d-95ef-a1af47e35128","https://diploma-sigma-weld.vercel.app/");
                 });
               `,
             }}

@@ -41,7 +41,7 @@ export default function RootLayout({
               <FooterSection />
             </div>
           </NextIntlClientProvider>
-          <Script src="https://dev-api.inclusiveweb.com.ua/widgets/script/b39e4b28-ac86-49b0-bf16-c161fc2161cf" />
+          <Script src="https://dev-api.inclusiveweb.com.ua/widgets/script/bd6244bb-5e5c-4459-8722-6c44b8419f4a" />
           <Script
             id="1"
             strategy="afterInteractive"

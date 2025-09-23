@@ -33,6 +33,9 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang={locale}>
+        <head>
+          <meta name="referrer" content="no-referrer" />
+        </head>
         <body className={nunito.className}>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <LayoutProvider>{children}</LayoutProvider>
@@ -41,7 +44,12 @@ export default function RootLayout({
               <FooterSection />
             </div>
           </NextIntlClientProvider>
-          <Script src="https://dev-api.inclusiveweb.com.ua/widgets/script/563f0b40-0dc9-465e-9fdd-4c09d9117643" />
+
+          <Script
+            src="https://dev-api.inclusiveweb.com.ua/widget.js"
+            data-id="563f0b40-0dc9-465e-9fdd-4c09d9117643"
+          />
+
           <Script
             id="1"
             strategy="afterInteractive"
@@ -70,11 +78,16 @@ export default function RootLayout({
                 document.body.appendChild(iframe);
                 
                 window.addEventListener("message", (e) => {
-                  if (e.origin !== "https://diploma-sigma-weld.vercel.app") return;
-                  let dimensions = JSON.parse(e.data);
-                  iframe.width = dimensions.width;
-                  iframe.height = dimensions.height;
-                  iframe.contentWindow.postMessage("70d8e789-397d-4b1d-95ef-a1af47e35128","https://diploma-sigma-weld.vercel.app/");
+                  try {
+                    let dimensions = JSON.parse(e.data);
+                    if (dimensions.width && dimensions.height) {
+                      iframe.width = dimensions.width;
+                      iframe.height = dimensions.height;
+                      iframe.contentWindow.postMessage("70d8e789-397d-4b1d-95ef-a1af47e35128", "*");
+                    }
+                  } catch (err) {
+                    console.log("Invalid message data");
+                  }
                 });
               `,
             }}

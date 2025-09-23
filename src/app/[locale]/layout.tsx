@@ -44,12 +44,10 @@ export default function RootLayout({
               <FooterSection />
             </div>
           </NextIntlClientProvider>
-
           <Script
             src="https://dev-api.inclusiveweb.com.ua/widget.js"
             data-id="563f0b40-0dc9-465e-9fdd-4c09d9117643"
           />
-
           <Script
             id="1"
             strategy="afterInteractive"
